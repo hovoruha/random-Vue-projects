@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .wrapper {
   position: relative;
   width: 100%;
@@ -18,7 +19,7 @@
   height: 70px;
   background-color: gray;
   color: lightblue;
-  padding: 0 20px;
+  padding: 0 20px 0 50px;
 }
 .app-navbar h1 {
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
@@ -45,6 +46,37 @@
 }
 .app-navbar-menu-item_icon {
   margin-right: 10px;
+}
+
+.app-sidebar {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 300px;
+  height: calc( 100% - 70px );
+  background-color: gray;
+  border-right: 5px solid lightblue;
+  transform: translateX(-295px);
+  box-shadow: 3px 0 0 0 gray;
+  transition: all 0.4s ease-in-out;
+}
+.app-sidebar::before {
+  content: "👈";
+  position: absolute;
+  top: 0;
+  right: -35px;
+  font-size: 20px;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  transition: opacity 0.4s ease-in-out;
+}
+.app-sidebar:hover {
+  transform: translateX(0);
+  border-right: 5px solid lightpink;
+  transition: all 0.4s ease-in-out;
+}
+.app-sidebar:hover::before {
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
 }
 
 * {

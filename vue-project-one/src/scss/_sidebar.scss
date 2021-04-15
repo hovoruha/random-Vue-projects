@@ -1,0 +1,39 @@
+@use 'config' as *;
+@use 'functions' as *;
+@use 'mixins' as *;
+
+.app-sidebar {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 300px;
+  height: calc(
+    100% - 70px
+  ); //de ajustat inca si mai mult, in cazul adaugarii unui footer...
+  background-color: set-color($bg, secondary);
+  border-right: 5px solid set-color($bg, accent1);
+  transform: translateX(-295px);
+  box-shadow: 3px 0 0 0 set-color($bg, secondary);
+  transition: all 0.4s ease-in-out;
+
+  &::before {
+    content: "\👈";
+    position: absolute;
+    top: 0;
+    right: -35px;
+    font-size: 20px;
+    text-shadow: 2px 2px 3px set-color($sdw, default);
+    transition: opacity 0.4s ease-in-out;
+  }
+
+  &:hover {
+    transform: translateX(0);
+    border-right: 5px solid set-color($bg, accent2);
+    transition: all 0.4s ease-in-out;
+
+    &::before {
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+    }
+  }
+}
