@@ -1,3 +1,43 @@
 @use 'config' as *;
 @use 'functions' as *;
 @use 'mixins' as *;
+
+//inputuri_________________________
+.input {
+  @include input(default);
+}
+.input-primary {
+  @include input(primary);
+}
+.input-danger {
+  @include input(danger);
+}
+.input-warning {
+  @include input(warning);
+}
+.input-valid {
+  @include input(valid);
+}
+.input-disable {
+  @include input(disable);
+}
+
+//butoane_________________________
+.btn {
+  @include btn(default);
+}
+.btn-primary {
+  @include btn(primary);
+}
+.btn-danger {
+  @include btn(danger);
+}
+.btn-warning {
+  @include btn(warning);
+}
+.btn-valid {
+  @include btn(valid);
+}
+.btn-disable {
+  @include btn(disable);
+}

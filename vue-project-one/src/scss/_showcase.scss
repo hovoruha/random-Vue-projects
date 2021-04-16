@@ -1,0 +1,27 @@
+@use 'config' as *;
+@use 'functions' as *;
+@use 'mixins' as *;
+
+.app-showcase {
+  @include flex-row(center, center, wrap);
+  position: fixed;
+  top: 70px;
+  left: 8px;
+  height: calc(100% - 140px); //de modificat px daca se adauga footer...
+  min-width: calc(100% - 8px); //se ajusteaza automat la app-sidebar:hover [...]
+  overflow-x: auto;
+  transition: all 0.4s ease-in-out;
+
+  &-container {
+    @include flex-col(center, center, wrap);
+    width: 30%;
+    height: 90%;
+    overflow-y: auto;
+    margin: 30px;
+    padding: 40px 20px;
+    background-color: rgba(set-color($bg, default), 0.5);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 set-color($sdw, box),
+      0 6px 20px 0 set-color($sdw, box);
+  }
+}

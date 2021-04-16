@@ -3,12 +3,13 @@
 @use 'mixins' as *;
 
 .app-sidebar {
+  // z-index: 1;
   position: fixed;
   top: 70px;
   left: 0;
   width: 300px;
   height: calc(
-    100% - 70px
+    100% - 140px
   ); //de ajustat inca si mai mult, in cazul adaugarii unui footer...
   background-color: set-color($bg, secondary);
   border-right: 5px solid set-color($bg, accent1);
@@ -31,9 +32,26 @@
     border-right: 5px solid set-color($bg, accent2);
     transition: all 0.4s ease-in-out;
 
+    + .app-showcase {
+      left: 303px; //au fost adaugati 3px de la box-shadow...
+      min-width: calc(100% - 292px);
+      transition: all 0.4s ease-in-out;
+    }
+
     &::before {
       opacity: 0;
       transition: opacity 0.4s ease-in-out;
+    }
+  }
+
+  &-menu {
+    width: 100%;
+    height: 100%;
+    padding: 70px 20px 70px;
+
+    &-item {
+      width: 100%;
+      margin-bottom: 20px;
     }
   }
 }

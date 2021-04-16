@@ -6,18 +6,42 @@ $bg: (
   accent2: lightpink,
 );
 
+$bg-input: (
+  default: lightgrey,
+  primary: #18a1cf,
+  danger: #fc8194,
+  warning: #f0be2d,
+  valid: #2df05b,
+  disable: darkgray,
+  accent1: lightblue,
+  accent2: lightpink,
+);
+
 $txt: (
-  default: #fff,
-  primary: #000,
-  accent1: #18a1cf,
-  accent2: #fc8194,
+  default: #5c5c5c,
+  wht: #fff,
+  bk: #000,
+  accent1: lightblue,
+  accent2: lightpink,
+  primary: #18a1cf,
+  danger: #fc8194,
+  warning: #f0be2d,
+  valid: #2df05b,
+  disable: darkgray,
 );
 
 $sdw: (
   default: rgba(0, 0, 0, 0.5),
+  box: rgba(0, 0, 0, 0.2),
 );
 
 $bord: (
-  accent1: #18a1cf,
-  accent2: #fc8194,
+  default: #5c5c5c,
+  primary: #18a1cf,
+  danger: #fc8194,
+  warning: #f0be2d,
+  valid: #2df05b,
+  disable: darkgray,
+  accent1: lightblue,
+  accent2: lightpink,
 );
