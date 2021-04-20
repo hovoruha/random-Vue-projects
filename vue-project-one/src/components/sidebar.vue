@@ -1,14 +1,45 @@
 <template>
   <div class="app-sidebar">
+    <div class="app-sidebar-tabs">
+      <sidebar-tab
+        :content="this.sidebarTabs[0]"
+        @click="
+          [
+            this.activateTab(this.sidebarTabs[0]),
+            this.deactivateTab(this.sidebarTabs[1]),
+          ]
+        "
+      />
+      <sidebar-tab
+        :content="this.sidebarTabs[1]"
+        @click="
+          [
+            this.activateTab(this.sidebarTabs[1]),
+            this.deactivateTab(this.sidebarTabs[0]),
+          ]
+        "
+      />
+    </div>
     <form class="app-sidebar-menu">
-      <sidebar-select :contents="this.currentState" :id="this.selectionId" />
-      <sidebar-input :contents="this.sidebarInputs" />
+      <sidebar-select
+        :contents="this.currentState"
+        :id="this.selectionId"
+        v-if="!this.sidebarTabs[0].isActive"
+      />
+      <sidebar-input
+        :contents="
+          this.sidebarTabs[0].isActive
+            ? this.sidebarThreadInputs
+            : this.sidebarTaskInputs
+        "
+      />
     </form>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import sidebarTab from "./sidebarTab";
 import sidebarInput from "./sidebarInput";
 import sidebarSelect from "./sidebarSelect";
 
@@ -16,13 +47,19 @@ export default {
   name: "sideBar",
 
   components: {
+    sidebarTab,
     sidebarInput,
     sidebarSelect,
   },
 
   data() {
     return {
-      sidebarInputs: [
+      sidebarTabs: [
+        { text: "New Thread", isActive: true },
+        { text: "New Task", isActive: false },
+      ],
+
+      sidebarThreadInputs: [
         {
           id: "threadTitle",
           type: "text",
@@ -49,6 +86,33 @@ export default {
         },
       ],
 
+      sidebarTaskInputs: [
+        {
+          id: "taskTitle",
+          type: "text",
+          class: "input",
+          placeholder: "enter task title here...",
+        },
+        {
+          id: "taskContent",
+          type: "text",
+          class: "input",
+          placeholder: "enter task content here...",
+        },
+        {
+          id: "taskAuthor",
+          type: "text",
+          class: "input",
+          placeholder: "enter task author here...",
+        },
+        {
+          type: "submit",
+          class: "btn-primary",
+          value: "create task",
+          run: null,
+        },
+      ],
+
       selectionId: "threadSelect",
     };
   },
@@ -70,8 +134,16 @@ export default {
         date: this.currentDate,
         content: [],
       };
-      // console.log(insertThread);
+
       this.$store.state.allThreads.push(insertThread);
+    },
+
+    activateTab(obj) {
+      obj.isActive = true;
+    },
+
+    deactivateTab(obj) {
+      obj.isActive = false;
     },
   },
 };

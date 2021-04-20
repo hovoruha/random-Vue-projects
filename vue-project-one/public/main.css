@@ -336,6 +336,38 @@
   box-shadow: 3px 0 0 0 gray;
   transition: all 0.4s ease-in-out;
 }
+.app-sidebar-tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding: 0 10px;
+  margin-top: 40px;
+  border-bottom: 1px solid #5c5c5c;
+}
+.app-sidebar-tabs-item {
+  padding: 5px;
+  border-left: 1px solid #5c5c5c;
+  border-top: 1px solid #5c5c5c;
+  border-right: 1px solid #5c5c5c;
+  border-radius: 5px 5px 0 0;
+  text-align: center;
+  color: #5c5c5c;
+  font-size: 12px;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+.app-sidebar-tabs-item.open {
+  box-shadow: 0 2px gray;
+  color: lightpink;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+.app-sidebar-tabs-item:hover {
+  cursor: pointer;
+}
 .app-sidebar::before {
   content: "👈";
   position: absolute;

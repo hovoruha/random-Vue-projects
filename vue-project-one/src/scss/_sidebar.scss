@@ -17,6 +17,40 @@
   box-shadow: 3px 0 0 0 set-color($bg, secondary);
   transition: all 0.4s ease-in-out;
 
+  &-tabs {
+    @include flex-row(flex-end, flex-start, nowrap);
+    width: 100%;
+    padding: 0 10px;
+    margin-top: 40px;
+    border-bottom: 1px solid set-color($bord, default);
+
+    &-item {
+      padding: 5px;
+      border: {
+        left: 1px solid set-color($bord, default);
+        top: 1px solid set-color($bord, default);
+        right: 1px solid set-color($bord, default);
+      }
+      border-radius: 5px 5px 0 0;
+      text-align: center;
+      color: set-color($txt, default);
+      font-size: 12px;
+      font-weight: bold;
+      transition: all 0.2s ease-in-out;
+
+      &.open {
+        box-shadow: 0 2px set-color($bg, secondary);
+        color: set-color($txt, accent2);
+        text-shadow: 2px 2px 3px set-color($sdw, default);
+        transition: all 0.3s ease-in-out;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
   &::before {
     content: "\👈";
     position: absolute;
