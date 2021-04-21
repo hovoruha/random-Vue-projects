@@ -7,6 +7,7 @@
           [
             this.activateTab(this.sidebarTabs[0]),
             this.deactivateTab(this.sidebarTabs[1]),
+            this.showMeObj($event.target),
           ]
         "
       />
@@ -16,6 +17,7 @@
           [
             this.activateTab(this.sidebarTabs[1]),
             this.deactivateTab(this.sidebarTabs[0]),
+            this.showMeObj($event.target),
           ]
         "
       />
@@ -144,6 +146,18 @@ export default {
 
     deactivateTab(obj) {
       obj.isActive = false;
+    },
+
+    //method in tests...
+    showMeObj(e) {
+      const texts = [];
+      const myTabs = document.querySelectorAll("span.app-sidebar-tabs-item");
+      myTabs.forEach((tab) => {
+        texts.push(tab.innerHTML);
+      });
+      console.log(texts);
+      const actiTab = texts.findIndex((txt) => txt == e.innerHTML);
+      console.log(actiTab);
     },
   },
 };
