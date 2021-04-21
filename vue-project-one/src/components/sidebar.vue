@@ -2,24 +2,8 @@
   <div class="app-sidebar">
     <div class="app-sidebar-tabs">
       <sidebar-tab
-        :content="this.sidebarTabs[0]"
-        @click="
-          [
-            this.activateTab(this.sidebarTabs[0]),
-            this.deactivateTab(this.sidebarTabs[1]),
-            this.showMeObj($event.target),
-          ]
-        "
-      />
-      <sidebar-tab
-        :content="this.sidebarTabs[1]"
-        @click="
-          [
-            this.activateTab(this.sidebarTabs[1]),
-            this.deactivateTab(this.sidebarTabs[0]),
-            this.showMeObj($event.target),
-          ]
-        "
+        :content="this.sidebarTabs"
+        @clickAction="this.activateTab"
       />
     </div>
     <form class="app-sidebar-menu">
@@ -29,11 +13,9 @@
         v-if="!this.sidebarTabs[0].isActive"
       />
       <sidebar-input
-        :contents="
-          this.sidebarTabs[0].isActive
-            ? this.sidebarThreadInputs
-            : this.sidebarTaskInputs
-        "
+        v-for="itm in this.sidebarTabs"
+        :key="itm"
+        :contents="itm.isActive ? itm.inputs : null"
       />
     </form>
   </div>
@@ -57,63 +39,121 @@ export default {
   data() {
     return {
       sidebarTabs: [
-        { text: "New Thread", isActive: true },
-        { text: "New Task", isActive: false },
+        {
+          text: "New Thread",
+          isActive: true,
+          inputs: [
+            {
+              id: "threadTitle",
+              type: "text",
+              class: "input",
+              placeholder: "enter thread subject here...",
+            },
+            {
+              id: "threadDescription",
+              type: "text",
+              class: "input",
+              placeholder: "enter thread description here...",
+            },
+            {
+              id: "threadAuthor",
+              type: "text",
+              class: "input",
+              placeholder: "enter thread author here...",
+            },
+            {
+              type: "submit",
+              class: "btn-primary",
+              value: "create thread",
+              run: this.uploadThread,
+            },
+          ],
+        },
+        {
+          text: "New Task",
+          isActive: false,
+          inputs: [
+            {
+              id: "taskTitle",
+              type: "text",
+              class: "input",
+              placeholder: "enter task title here...",
+            },
+            {
+              id: "taskContent",
+              type: "text",
+              class: "input",
+              placeholder: "enter task content here...",
+            },
+            {
+              id: "taskAuthor",
+              type: "text",
+              class: "input",
+              placeholder: "enter task author here...",
+            },
+            {
+              type: "submit",
+              class: "btn-primary",
+              value: "create task",
+              run: null,
+            },
+          ],
+        },
       ],
 
-      sidebarThreadInputs: [
-        {
-          id: "threadTitle",
-          type: "text",
-          class: "input",
-          placeholder: "enter thread subject here...",
-        },
-        {
-          id: "threadDescription",
-          type: "text",
-          class: "input",
-          placeholder: "enter thread description here...",
-        },
-        {
-          id: "threadAuthor",
-          type: "text",
-          class: "input",
-          placeholder: "enter thread author here...",
-        },
-        {
-          type: "submit",
-          class: "btn-primary",
-          value: "create thread",
-          run: this.uploadThread,
-        },
-      ],
+      // sidebarThreadInputs: [
+      //   {
+      //     id: "threadTitle",
+      //     type: "text",
+      //     class: "input",
+      //     placeholder: "enter thread subject here...",
+      //   },
+      //   {
+      //     id: "threadDescription",
+      //     type: "text",
+      //     class: "input",
+      //     placeholder: "enter thread description here...",
+      //   },
+      //   {
+      //     id: "threadAuthor",
+      //     type: "text",
+      //     class: "input",
+      //     placeholder: "enter thread author here...",
+      //   },
+      //   {
+      //     type: "submit",
+      //     class: "btn-primary",
+      //     value: "create thread",
+      //     run: this.uploadThread,
+      //   },
+      // ],
 
-      sidebarTaskInputs: [
-        {
-          id: "taskTitle",
-          type: "text",
-          class: "input",
-          placeholder: "enter task title here...",
-        },
-        {
-          id: "taskContent",
-          type: "text",
-          class: "input",
-          placeholder: "enter task content here...",
-        },
-        {
-          id: "taskAuthor",
-          type: "text",
-          class: "input",
-          placeholder: "enter task author here...",
-        },
-        {
-          type: "submit",
-          class: "btn-primary",
-          value: "create task",
-          run: null,
-        },
-      ],
+      // sidebarTaskInputs: [
+      //   {
+      //     id: "taskTitle",
+      //     type: "text",
+      //     class: "input",
+      //     placeholder: "enter task title here...",
+      //   },
+      //   {
+      //     id: "taskContent",
+      //     type: "text",
+      //     class: "input",
+      //     placeholder: "enter task content here...",
+      //   },
+      //   {
+      //     id: "taskAuthor",
+      //     type: "text",
+      //     class: "input",
+      //     placeholder: "enter task author here...",
+      //   },
+      //   {
+      //     type: "submit",
+      //     class: "btn-primary",
+      //     value: "create task",
+      //     run: null,
+      //   },
+      // ],
 
       selectionId: "threadSelect",
     };
@@ -140,24 +180,30 @@ export default {
       this.$store.state.allThreads.push(insertThread);
     },
 
-    activateTab(obj) {
-      obj.isActive = true;
-    },
+    // activateTab(obj) {
+    //   obj.isActive = true;
+    // },
 
-    deactivateTab(obj) {
-      obj.isActive = false;
-    },
+    // deactivateTab(obj) {
+    //   obj.isActive = false;
+    // },
 
-    //method in tests...
-    showMeObj(e) {
+    activateTab(e) {
       const texts = [];
       const myTabs = document.querySelectorAll("span.app-sidebar-tabs-item");
+
       myTabs.forEach((tab) => {
         texts.push(tab.innerHTML);
       });
-      console.log(texts);
+
       const actiTab = texts.findIndex((txt) => txt == e.innerHTML);
-      console.log(actiTab);
+
+      //reset all isActive state to false
+      this.sidebarTabs.forEach((item) => {
+        item.isActive = false;
+      });
+      //set to true only the state of the activated tab
+      this.sidebarTabs[actiTab].isActive = true;
     },
   },
 };
