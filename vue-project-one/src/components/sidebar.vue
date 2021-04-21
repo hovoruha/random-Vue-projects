@@ -101,60 +101,6 @@ export default {
         },
       ],
 
-      // sidebarThreadInputs: [
-      //   {
-      //     id: "threadTitle",
-      //     type: "text",
-      //     class: "input",
-      //     placeholder: "enter thread subject here...",
-      //   },
-      //   {
-      //     id: "threadDescription",
-      //     type: "text",
-      //     class: "input",
-      //     placeholder: "enter thread description here...",
-      //   },
-      //   {
-      //     id: "threadAuthor",
-      //     type: "text",
-      //     class: "input",
-      //     placeholder: "enter thread author here...",
-      //   },
-      //   {
-      //     type: "submit",
-      //     class: "btn-primary",
-      //     value: "create thread",
-      //     run: this.uploadThread,
-      //   },
-      // ],
-
-      // sidebarTaskInputs: [
-      //   {
-      //     id: "taskTitle",
-      //     type: "text",
-      //     class: "input",
-      //     placeholder: "enter task title here...",
-      //   },
-      //   {
-      //     id: "taskContent",
-      //     type: "text",
-      //     class: "input",
-      //     placeholder: "enter task content here...",
-      //   },
-      //   {
-      //     id: "taskAuthor",
-      //     type: "text",
-      //     class: "input",
-      //     placeholder: "enter task author here...",
-      //   },
-      //   {
-      //     type: "submit",
-      //     class: "btn-primary",
-      //     value: "create task",
-      //     run: null,
-      //   },
-      // ],
-
       selectionId: "threadSelect",
     };
   },
@@ -179,14 +125,6 @@ export default {
 
       this.$store.state.allThreads.push(insertThread);
     },
-
-    // activateTab(obj) {
-    //   obj.isActive = true;
-    // },
-
-    // deactivateTab(obj) {
-    //   obj.isActive = false;
-    // },
 
     activateTab(e) {
       const texts = [];
