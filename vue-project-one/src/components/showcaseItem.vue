@@ -5,7 +5,9 @@
         <div class="app-showcase-item-header-title-menu">
           <span><i class="far fa-check-circle"></i></span>
           <span><i class="fas fa-info-circle"></i></span>
-          <span><i class="far fa-times-circle"></i></span>
+          <span @click="$emit('remove')"
+            ><i class="far fa-times-circle"></i
+          ></span>
         </div>
         <div class="app-showcase-item-header-title-text">
           {{ item.title }}
@@ -35,6 +37,8 @@ export default {
     contents: Array,
     date: String,
   },
+
+  emits: ["remove"],
 
   data() {
     return {};

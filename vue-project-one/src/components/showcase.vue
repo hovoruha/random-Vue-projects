@@ -1,6 +1,12 @@
 <template>
   <div class="app-showcase">
-    <showcase-item :contents="currentState" :date="currentDate" />
+    <showcase-item
+      v-for="(thread, index) in this.currentState"
+      :key="index"
+      :contents="currentState"
+      :date="currentDate"
+      @remove="this.currentState.splice(index, 1)"
+    />
   </div>
 </template>
 

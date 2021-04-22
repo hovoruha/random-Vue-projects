@@ -10,12 +10,12 @@
       <sidebar-select
         :contents="this.currentState"
         :id="this.selectionId"
-        v-if="!this.sidebarTabs[0].isActive"
+        v-if="this.hasSelection"
       />
       <sidebar-input
-        v-for="itm in this.sidebarTabs"
-        :key="itm"
-        :contents="itm.isActive ? itm.inputs : null"
+        v-for="item in this.sidebarTabs"
+        :key="item"
+        :contents="item.isActive ? item.inputs : null"
       />
     </form>
   </div>
@@ -42,6 +42,7 @@ export default {
         {
           text: "New Thread",
           isActive: true,
+          threadSelection: false,
           inputs: [
             {
               id: "threadTitle",
@@ -72,6 +73,7 @@ export default {
         {
           text: "New Task",
           isActive: false,
+          threadSelection: true,
           inputs: [
             {
               id: "taskTitle",
@@ -101,6 +103,7 @@ export default {
         },
       ],
 
+      hasSelection: "",
       selectionId: "threadSelect",
     };
   },
@@ -127,21 +130,20 @@ export default {
     },
 
     activateTab(e) {
-      const texts = [];
-      const myTabs = document.querySelectorAll("span.app-sidebar-tabs-item");
-
-      myTabs.forEach((tab) => {
-        texts.push(tab.innerHTML);
-      });
-
-      const actiTab = texts.findIndex((txt) => txt == e.innerHTML);
-
-      //reset all isActive state to false
+      //use of e.target to target the tab innerText
+      const tabInnerText = e.innerHTML;
+      //target the tabs index in sidebarTabs array conditionned by the innerText
+      const tabIndexInTabsArray = this.sidebarTabs.findIndex(
+        (tab) => tab.text == tabInnerText
+      );
+      //reset all active states to false
       this.sidebarTabs.forEach((item) => {
         item.isActive = false;
       });
-      //set to true only the state of the activated tab
-      this.sidebarTabs[actiTab].isActive = true;
+      //set the active state to true for the selected tab
+      this.sidebarTabs[tabIndexInTabsArray].isActive = true;
+      //mark that the tab poseses a thread selection field
+      this.hasSelection = this.sidebarTabs[tabIndexInTabsArray].threadSelection;
     },
   },
 };
