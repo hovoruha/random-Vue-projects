@@ -114,19 +114,7 @@ export default {
 
   methods: {
     uploadThread() {
-      const title = document.getElementById("threadTitle").value;
-      const desc = document.getElementById("threadDescription").value;
-      const auth = document.getElementById("threadAuthor").value;
-      const insertThread = {
-        id: this.getAllThreadsCount + 1,
-        title: title,
-        description: desc,
-        author: auth,
-        date: this.currentDate,
-        content: [],
-      };
-
-      this.$store.state.allThreads.push(insertThread);
+      this.$store.commit("addThread");
     },
 
     activateTab(e) {

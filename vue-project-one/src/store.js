@@ -46,7 +46,27 @@ const store = createStore({
     },
   },
 
-  mutations: {},
+  mutations: {
+    removeThread(state, i) {
+      state.allThreads.splice(i, 1);
+    },
+
+    addThread(state) {
+      const title = document.getElementById("threadTitle").value;
+      const desc = document.getElementById("threadDescription").value;
+      const auth = document.getElementById("threadAuthor").value;
+      const insertThread = {
+        id: this.getAllThreadsCount + 1,
+        title: title,
+        description: desc,
+        author: auth,
+        date: this.currentDate,
+        content: [],
+      };
+
+      state.allThreads.push(insertThread);
+    },
+  },
 
   actions: {},
 });

@@ -1,11 +1,9 @@
 <template>
   <div class="app-showcase">
     <showcase-item
-      v-for="(thread, index) in this.currentState"
-      :key="index"
-      :contents="currentState"
-      :date="currentDate"
-      @remove="this.currentState.splice(index, 1)"
+      :contents="this.currentState"
+      :date="this.currentDate"
+      @remove="this.removeThread"
     />
   </div>
 </template>
@@ -23,6 +21,14 @@ export default {
 
   computed: {
     ...mapGetters(["currentState", "currentDate"]),
+  },
+
+  methods: {
+    removeThread(i) {
+      console.log(i);
+      this.$store.commit("removeThread", i);
+      console.log(this.currentState);
+    },
   },
 };
 </script>

@@ -3,25 +3,32 @@
 @use 'mixins' as *;
 
 .app-showcase {
-  @include flex-row(center, center, wrap);
+  @include flex-col(center, center, wrap);
   position: fixed;
   top: 70px;
   left: 8px;
   height: calc(100% - 140px); //de modificat px daca se adauga footer...
-  min-width: calc(100% - 8px); //se ajusteaza automat la app-sidebar:hover [...]
-  overflow-x: auto;
+  width: calc(100% - 8px); //se ajusteaza automat la app-sidebar:hover [...]
+  overflow-y: auto;
   transition: all 0.4s ease-in-out;
 
   &-item {
     position: relative;
     width: 500px;
     height: 90%;
-    margin: 30px;
+    margin: 15px;
     background-color: rgba(set-color($bg, default), 0.5);
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 set-color($sdw, box),
       0 6px 20px 0 set-color($sdw, box);
+    // transform: scale(0.5); //new addition...
     overflow: hidden;
+    // transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1);
+      // transition: transform 0.3s ease-in-out;
+    }
 
     &-header {
       position: sticky;

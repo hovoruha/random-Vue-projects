@@ -1,11 +1,11 @@
 <template>
-  <div class="app-showcase-item" v-for="item in contents" :key="item">
+  <div class="app-showcase-item" v-for="(item, index) in contents" :key="item">
     <div class="app-showcase-item-header">
       <div class="app-showcase-item-header-title">
         <div class="app-showcase-item-header-title-menu">
           <span><i class="far fa-check-circle"></i></span>
           <span><i class="fas fa-info-circle"></i></span>
-          <span @click="$emit('remove')"
+          <span @click="$emit('remove', index)"
             ><i class="far fa-times-circle"></i
           ></span>
         </div>
