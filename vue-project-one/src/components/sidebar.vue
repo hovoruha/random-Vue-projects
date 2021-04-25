@@ -11,6 +11,7 @@
         :contents="this.currentState"
         :id="this.selectionId"
         v-if="this.hasSelection"
+        @set-active-thread-id="setActiveThread"
       />
       <sidebar-input
         v-for="item in this.sidebarTabs"
@@ -97,7 +98,7 @@ export default {
               type: "submit",
               class: "btn-primary",
               value: "create task",
-              run: null,
+              run: this.uploadTask,
             },
           ],
         },
@@ -109,12 +110,53 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["currentState", "currentDate", "getAllThreadsCount"]),
+    ...mapGetters([
+      "currentState",
+      "currentDate",
+      "getAllThreadsCount",
+      "getAllTasksCount",
+    ]),
   },
 
   methods: {
+    setActiveThread(e) {
+      this.$store.state.activeThread = e;
+    },
+
     uploadThread() {
-      this.$store.commit("addThread");
+      const title = document.getElementById("threadTitle");
+      const desc = document.getElementById("threadDescription");
+      const auth = document.getElementById("threadAuthor");
+      const insertThread = {
+        id: this.getAllThreadsCount + 1,
+        title: title.value,
+        description: desc.value,
+        author: auth.value,
+        date: this.currentDate,
+        content: [],
+      };
+
+      this.$store.commit("addThread", insertThread);
+    },
+
+    uploadTask() {
+      const title = document.getElementById("taskTitle");
+      const text = document.getElementById("taskContent");
+      const auth = document.getElementById("taskAuthor");
+      const insertTask = {
+        id: this.getAllTasksCount + 1,
+        title: title.value,
+        author: auth.value,
+        date: this.currentDate,
+        content: text.value,
+        complete: false,
+        comments: [],
+      };
+      this.$store.commit("addTask", insertTask); //de adaugat obj ca payload...
+      //clear all inputs value after uploading data...
+      title.value = "";
+      text.value = "";
+      auth.value = "";
     },
 
     activateTab(e) {

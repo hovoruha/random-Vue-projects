@@ -2,6 +2,8 @@ import { createStore } from "vuex";
 
 const store = createStore({
   state: {
+    activeThread: "",
+
     allThreads: [
       {
         id: 1,
@@ -11,7 +13,46 @@ const store = createStore({
         author: "Octavian Hovoruha",
         date: "10/02/2021",
         content: [
-          "aici vor fi listate obiecte ce contin task-urile, apoi obiectele vor fi folosite la popularea componentei taskItem.vue prin iterare v-for:",
+          {
+            id: 1,
+            title: "This is the first task",
+            author: "Hovoruha Octavian",
+            date: "10/02/2021",
+            content:
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita commodi recusandae eum a eveniet quo fugiat hic voluptatum omnis libero nihil esse architecto cum nulla id ipsum, accusamus laborum illo eaque.",
+            complete: false,
+            comments: [],
+          },
+          {
+            id: 2,
+            title: "This is the first task",
+            author: "Hovoruha Octavian",
+            date: "10/02/2021",
+            content:
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita commodi recusandae eum a eveniet quo fugiat hic voluptatum omnis libero nihil esse architecto cum nulla id ipsum, accusamus laborum illo eaque.",
+            complete: false,
+            comments: [],
+          },
+          {
+            id: 3,
+            title: "This is the first task",
+            author: "Hovoruha Octavian",
+            date: "10/02/2021",
+            content:
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita commodi recusandae eum a eveniet quo fugiat hic voluptatum omnis libero nihil esse architecto cum nulla id ipsum, accusamus laborum illo eaque.",
+            complete: true,
+            comments: [],
+          },
+          {
+            id: 4,
+            title: "This is the first task",
+            author: "Hovoruha Octavian",
+            date: "10/02/2021",
+            content:
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita commodi recusandae eum a eveniet quo fugiat hic voluptatum omnis libero nihil esse architecto cum nulla id ipsum, accusamus laborum illo eaque.",
+            complete: false,
+            comments: [],
+          },
         ],
       },
       {
@@ -35,6 +76,14 @@ const store = createStore({
       return state.allThreads.length;
     },
 
+    getAllTasksCount: (state) => {
+      //get the index of the selected thread
+      const indexInThreads = state.allThreads.findIndex(
+        (item) => item.title === state.activeThread
+      );
+      return state.allThreads[indexInThreads].content.length;
+    },
+
     currentDate: () => {
       const date = new Date();
       const year = date.getFullYear();
@@ -51,20 +100,17 @@ const store = createStore({
       state.allThreads.splice(i, 1);
     },
 
-    addThread(state) {
-      const title = document.getElementById("threadTitle").value;
-      const desc = document.getElementById("threadDescription").value;
-      const auth = document.getElementById("threadAuthor").value;
-      const insertThread = {
-        id: this.getAllThreadsCount + 1,
-        title: title,
-        description: desc,
-        author: auth,
-        date: this.currentDate,
-        content: [],
-      };
+    addThread(state, obj) {
+      state.allThreads.push(obj);
+    },
 
-      state.allThreads.push(insertThread);
+    addTask(state, obj) {
+      //get index of thread based on the activeThread value
+      const threadIndex = state.allThreads.findIndex(
+        (item) => item.title === state.activeThread
+      );
+      //use index to focus onto the content array-prop
+      state.allThreads[threadIndex].content.push(obj);
     },
   },
 

@@ -18,7 +18,7 @@
   border: 1px solid lightblue;
 }
 .input:focus {
-  border: 1px solid lightpink;
+  border: 1px solid lightblue;
 }
 
 .input-primary {
@@ -40,7 +40,7 @@
   border: 1px solid lightblue;
 }
 .input-primary:focus {
-  border: 1px solid lightpink;
+  border: 1px solid lightblue;
 }
 
 .input-danger {
@@ -62,7 +62,7 @@
   border: 1px solid lightblue;
 }
 .input-danger:focus {
-  border: 1px solid lightpink;
+  border: 1px solid lightblue;
 }
 
 .input-warning {
@@ -84,7 +84,7 @@
   border: 1px solid lightblue;
 }
 .input-warning:focus {
-  border: 1px solid lightpink;
+  border: 1px solid lightblue;
 }
 
 .input-valid {
@@ -106,7 +106,7 @@
   border: 1px solid lightblue;
 }
 .input-valid:focus {
-  border: 1px solid lightpink;
+  border: 1px solid lightblue;
 }
 
 .input-disable {
@@ -128,7 +128,7 @@
   border: 1px solid lightblue;
 }
 .input-disable:focus {
-  border: 1px solid lightpink;
+  border: 1px solid lightblue;
 }
 
 .btn {
@@ -273,6 +273,54 @@
   background-color: darkgray;
   color: #fff;
   transition: all 0.3s ease;
+}
+
+.item {
+  border-radius: 0 5px 5px 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-left: 5px solid #5c5c5c;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.item-primary {
+  border-radius: 0 5px 5px 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-left: 5px solid #18a1cf;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.item-danger {
+  border-radius: 0 5px 5px 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-left: 5px solid #fc8194;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.item-warning {
+  border-radius: 0 5px 5px 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-left: 5px solid #f0be2d;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.item-valid {
+  border-radius: 0 5px 5px 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-left: 5px solid #2df05b;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.item-disable {
+  border-radius: 0 5px 5px 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-left: 5px solid darkgray;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 .wrapper {
@@ -513,6 +561,60 @@
   height: 500px;
   padding: 20px;
   overflow: auto;
+}
+.app-showcase-item-content .task-item {
+  position: relative;
+  width: 100%;
+  color: #5c5c5c;
+  margin-bottom: 15px;
+}
+.app-showcase-item-content .task-item-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  border-bottom: 1px solid darkgray;
+}
+.app-showcase-item-content .task-item-header-title {
+  font-size: 14px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.app-showcase-item-content .task-item-header-menu {
+  margin-right: 5px;
+}
+.app-showcase-item-content .task-item-header-menu span {
+  padding-left: 3px;
+}
+.app-showcase-item-content .task-item-header-menu span:hover {
+  cursor: pointer;
+}
+.app-showcase-item-content .task-item-header-menu span i {
+  color: #5c5c5c;
+}
+.app-showcase-item-content .task-item-header-menu span:first-child:hover i {
+  color: #18a1cf;
+}
+.app-showcase-item-content .task-item-header-menu span:last-child:hover i {
+  color: #fc8194;
+}
+.app-showcase-item-content .task-item-header-menu span:nth-child(2):hover i {
+  color: #2df05b;
+}
+.app-showcase-item-content .task-item-details {
+  border-bottom: 1px solid darkgray;
+}
+.app-showcase-item-content .task-item-details-author, .app-showcase-item-content .task-item-details-date {
+  font-size: 12px;
+  font-weight: bold;
+}
+.app-showcase-item-content .task-item-details-author span, .app-showcase-item-content .task-item-details-date span {
+  font-size: 10px;
+  margin-right: 5px;
+}
+.app-showcase-item-content .task-item-content {
+  font-size: 11px;
 }
 
 .app-footer {

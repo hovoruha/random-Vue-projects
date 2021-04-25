@@ -40,7 +40,7 @@
   }
 
   &:focus {
-    border: 1px solid set-color($bord, accent2);
+    border: 1px solid set-color($bord, accent1);
   }
 }
 
@@ -68,4 +68,13 @@
     color: set-color($txt, wht);
     transition: all 0.3s ease;
   }
+}
+
+@mixin item($theme) {
+  border-radius: 0 5px 5px 0;
+  background-color: rgba(set-color($bg, default), 0.7);
+  border-left: 5px solid set-color($bord, $theme);
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 set-color($sdw, box),
+    0 6px 20px 0 set-color($sdw, box);
 }

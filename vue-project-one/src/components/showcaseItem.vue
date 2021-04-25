@@ -6,7 +6,7 @@
           <span><i class="far fa-check-circle"></i></span>
           <span><i class="fas fa-info-circle"></i></span>
           <span @click="$emit('remove', index)"
-            ><i class="far fa-times-circle"></i
+            ><i class="fas fa-trash-alt"></i
           ></span>
         </div>
         <div class="app-showcase-item-header-title-text">
@@ -25,13 +25,21 @@
         {{ item.date }}
       </div>
     </div>
-    <div class="app-showcase-item-content">{{ item.content }}</div>
+    <div class="app-showcase-item-content">
+      <task-item :contents="item.content" @remove-task="removeTask" />
+    </div>
   </div>
 </template>
 
 <script>
+import TaskItem from "./TaskItem";
+
 export default {
   name: "showcaseItem",
+
+  components: {
+    TaskItem,
+  },
 
   props: {
     contents: Array,
@@ -44,6 +52,10 @@ export default {
     return {};
   },
 
-  methods: {},
+  methods: {
+    removeTask(i, e) {
+      console.log(i + " / " + e);
+    },
+  },
 };
 </script>

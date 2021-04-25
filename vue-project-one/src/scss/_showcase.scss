@@ -7,7 +7,7 @@
   position: fixed;
   top: 70px;
   left: 8px;
-  height: calc(100% - 140px); //de modificat px daca se adauga footer...
+  height: calc(100% - 140px);
   width: calc(100% - 8px); //se ajusteaza automat la app-sidebar:hover [...]
   overflow-y: auto;
   transition: all 0.4s ease-in-out;
@@ -21,13 +21,10 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 set-color($sdw, box),
       0 6px 20px 0 set-color($sdw, box);
-    // transform: scale(0.5); //new addition...
     overflow: hidden;
-    // transition: transform 0.3s ease-in-out;
 
     &:hover {
       transform: scale(1);
-      // transition: transform 0.3s ease-in-out;
     }
 
     &-header {
@@ -116,6 +113,73 @@
       height: 500px;
       padding: 20px;
       overflow: auto;
+
+      //stilizari pentru componenta TaskItem...
+      .task-item {
+        position: relative;
+        width: 100%;
+        color: set-color($txt, default);
+        margin-bottom: 15px;
+
+        &-header {
+          @include flex-row(center, space-between, nowrap);
+          border-bottom: 1px solid set-color($bord, disable);
+
+          &-title {
+            font-size: 14px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px set-color($sdw, default);
+          }
+
+          &-menu {
+            margin-right: 5px;
+
+            span {
+              padding-left: 3px;
+
+              &:hover {
+                cursor: pointer;
+              }
+
+              i {
+                color: set-color($txt, default);
+              }
+
+              &:first-child:hover i {
+                color: set-color($txt, primary);
+              }
+              &:last-child:hover i {
+                color: set-color($txt, danger);
+              }
+              &:nth-child(2):hover i {
+                color: set-color($txt, valid);
+              }
+            }
+          }
+        }
+
+        &-details {
+          border-bottom: 1px solid set-color($bord, disable);
+
+          &-author {
+            font-size: 12px;
+            font-weight: bold;
+
+            span {
+              font-size: 10px;
+              margin-right: 5px;
+            }
+          }
+
+          &-date {
+            @extend .task-item-details-author;
+          }
+        }
+
+        &-content {
+          font-size: 11px;
+        }
+      }
     }
   }
 }

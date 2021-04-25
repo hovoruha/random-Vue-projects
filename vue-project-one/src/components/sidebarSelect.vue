@@ -1,6 +1,11 @@
 <template>
-  <select class="app-sidebar-menu-item input" :id="id">
-    <option v-for="item in contents" :key="item" :value="item.title">
+  <select
+    class="app-sidebar-menu-item input"
+    :id="id"
+    @change="$emit('set-active-thread-id', $event.target.value)"
+  >
+    <option selected>select thread from dropdown...</option>
+    <option :value="item.title" v-for="item in contents" :key="item">
       {{ item.title }}
     </option>
   </select>
@@ -14,5 +19,7 @@ export default {
     contents: Array,
     id: String,
   },
+
+  emits: ["set-active-thread-id"],
 };
 </script>
