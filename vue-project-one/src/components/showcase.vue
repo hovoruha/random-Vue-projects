@@ -3,7 +3,7 @@
     <showcase-item
       :contents="this.currentState"
       :date="this.currentDate"
-      @remove="this.removeThread"
+      @remove-thread="this.removeThread"
     />
   </div>
 </template>

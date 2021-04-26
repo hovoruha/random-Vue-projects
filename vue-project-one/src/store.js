@@ -62,7 +62,28 @@ const store = createStore({
           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita commodi recusandae eum a eveniet quo fugiat hic voluptatum omnis libero nihil esse architecto cum nulla id ipsum, accusamus laborum illo eaque.",
         author: "Octavian Hovoruha",
         date: "10/02/2021",
-        content: [],
+        content: [
+          {
+            id: 1,
+            title: "This is the first task",
+            author: "Hovoruha Octavian",
+            date: "10/02/2021",
+            content:
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita commodi recusandae eum a eveniet quo fugiat hic voluptatum omnis libero nihil esse architecto cum nulla id ipsum, accusamus laborum illo eaque.",
+            complete: false,
+            comments: [],
+          },
+          {
+            id: 2,
+            title: "This is the first task",
+            author: "Hovoruha Octavian",
+            date: "10/02/2021",
+            content:
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita commodi recusandae eum a eveniet quo fugiat hic voluptatum omnis libero nihil esse architecto cum nulla id ipsum, accusamus laborum illo eaque.",
+            complete: false,
+            comments: [],
+          },
+        ],
       },
     ],
   },

@@ -1,6 +1,6 @@
 <template>
   <div
-    v-for="(item, index) in contents"
+    v-for="(item, i) in contents"
     :key="item"
     class="task-item item-primary"
     :class="[item.complete ? 'item-valid' : '']"
@@ -9,10 +9,10 @@
       <div class="task-item-header-title">{{ item.id }} - {{ item.title }}</div>
       <div class="task-item-header-menu">
         <span><i class="fas fa-comment-dots"></i></span>
-        <span @click="$emit('complete-task', index)"
+        <span @click="$emit('complete-task', i)"
           ><i class="far fa-check-circle"></i
         ></span>
-        <span @click="$emit('remove-task', index, $event.target)"
+        <span @click="$emit('remove-task', i)"
           ><i class="fas fa-trash-alt"></i
         ></span>
       </div>

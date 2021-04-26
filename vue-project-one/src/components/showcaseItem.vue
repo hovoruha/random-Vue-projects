@@ -5,7 +5,7 @@
         <div class="app-showcase-item-header-title-menu">
           <span><i class="far fa-check-circle"></i></span>
           <span><i class="fas fa-info-circle"></i></span>
-          <span @click="$emit('remove', index)"
+          <span @click="$emit('remove-thread', index)"
             ><i class="fas fa-trash-alt"></i
           ></span>
         </div>
@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="app-showcase-item-content">
-      <task-item :contents="item.content" @remove-task="removeTask" />
+      <task-item :contents="item.content" @remove-task="removeTask(index, i)" />
     </div>
   </div>
 </template>
@@ -46,15 +46,17 @@ export default {
     date: String,
   },
 
-  emits: ["remove"],
+  emits: ["remove-thread"],
 
   data() {
     return {};
   },
 
   methods: {
-    removeTask(i, e) {
-      console.log(i + " / " + e);
+    removeTask(index, i) {
+      // console.log(i + " / " + ind);
+      // this.$store.state.allThreads[index].content.splice(i, 1);
+      console.log(index + " / " + i);
     },
   },
 };
