@@ -323,6 +323,26 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
+.pin-item {
+  color: #3d3d3d;
+  padding: 10px 15px;
+  text-align: right;
+  transition: all 0.3s ease-in-out;
+}
+.pin-item i {
+  transform: rotateZ(-90deg);
+  transition: all 0.3s ease-in-out;
+}
+.pin-item:hover i {
+  cursor: pointer;
+}
+.pin-item.open i {
+  transform: rotateZ(0deg);
+  color: #fc8194;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
 .wrapper {
   position: relative;
   width: 100%;
@@ -377,12 +397,26 @@
   top: 70px;
   left: 0;
   width: 300px;
-  height: calc( 100% - 140px );
+  height: calc(100% - 140px);
   background-color: gray;
   border-right: 5px solid lightblue;
   transform: translateX(-295px);
   box-shadow: 3px 0 0 0 gray;
   transition: all 0.4s ease-in-out;
+}
+.app-sidebar.open {
+  z-index: 1;
+  transform: translateX(0);
+  border-right: 5px solid lightpink;
+}
+.app-sidebar.open + .app-showcase {
+  left: 303px;
+  min-width: calc(100% - 292px);
+  transition: all 0.4s ease-in-out;
+}
+.app-sidebar.open::before {
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
 }
 .app-sidebar-tabs {
   display: flex;
@@ -476,9 +510,6 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
   overflow: hidden;
 }
-.app-showcase-item:hover {
-  transform: scale(1);
-}
 .app-showcase-item-header {
   position: sticky;
   top: 0;
@@ -558,9 +589,9 @@
 }
 .app-showcase-item-content {
   width: 100%;
-  height: 500px;
+  height: 550px;
   padding: 20px;
-  overflow: auto;
+  overflow-y: auto;
 }
 .app-showcase-item-content .task-item {
   position: relative;
@@ -599,8 +630,11 @@
 .app-showcase-item-content .task-item-header-menu span:last-child:hover i {
   color: #fc8194;
 }
-.app-showcase-item-content .task-item-header-menu span:nth-child(2):hover i {
+.app-showcase-item-content .task-item-header-menu span:nth-child(2):hover i.fa-check-circle {
   color: #2df05b;
+}
+.app-showcase-item-content .task-item-header-menu span:nth-child(2):hover i.fa-times-circle {
+  color: #fc8194;
 }
 .app-showcase-item-content .task-item-details {
   border-bottom: 1px solid darkgray;

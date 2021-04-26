@@ -8,14 +8,29 @@
   top: 70px;
   left: 0;
   width: 300px;
-  height: calc(
-    100% - 140px
-  ); //de ajustat inca si mai mult, in cazul adaugarii unui footer...
+  height: calc(100% - 140px);
   background-color: set-color($bg, secondary);
   border-right: 5px solid set-color($bg, accent1);
   transform: translateX(-295px);
   box-shadow: 3px 0 0 0 set-color($bg, secondary);
   transition: all 0.4s ease-in-out;
+
+  &.open {
+    z-index: 1;
+    transform: translateX(0);
+    border-right: 5px solid set-color($bg, accent2);
+
+    + .app-showcase {
+      left: 303px; //au fost adaugati 3px de la box-shadow...
+      min-width: calc(100% - 292px);
+      transition: all 0.4s ease-in-out;
+    }
+
+    &::before {
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+    }
+  }
 
   &-tabs {
     @include flex-row(flex-end, flex-start, nowrap);
@@ -26,11 +41,13 @@
 
     &-item {
       padding: 5px;
+
       border: {
         left: 1px solid set-color($bord, default);
         top: 1px solid set-color($bord, default);
         right: 1px solid set-color($bord, default);
       }
+
       border-radius: 5px 5px 0 0;
       text-align: center;
       color: set-color($txt, default);

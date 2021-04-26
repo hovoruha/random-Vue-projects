@@ -25,7 +25,7 @@ const store = createStore({
           },
           {
             id: 2,
-            title: "This is the first task",
+            title: "This is the second task",
             author: "Hovoruha Octavian",
             date: "10/02/2021",
             content:
@@ -35,7 +35,7 @@ const store = createStore({
           },
           {
             id: 3,
-            title: "This is the first task",
+            title: "This is the third task",
             author: "Hovoruha Octavian",
             date: "10/02/2021",
             content:
@@ -45,7 +45,17 @@ const store = createStore({
           },
           {
             id: 4,
-            title: "This is the first task",
+            title: "This is the fourth task",
+            author: "Hovoruha Octavian",
+            date: "10/02/2021",
+            content:
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita commodi recusandae eum a eveniet quo fugiat hic voluptatum omnis libero nihil esse architecto cum nulla id ipsum, accusamus laborum illo eaque.",
+            complete: false,
+            comments: [],
+          },
+          {
+            id: 5,
+            title: "This is the fifth task",
             author: "Hovoruha Octavian",
             date: "10/02/2021",
             content:

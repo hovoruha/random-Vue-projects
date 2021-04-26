@@ -1,11 +1,12 @@
 <template>
-  <div class="app-sidebar">
+  <div class="app-sidebar" :class="this.isPinned ? 'open' : ''">
     <div class="app-sidebar-tabs">
       <sidebar-tab
         :content="this.sidebarTabs"
         @clickAction="this.activateTab"
       />
     </div>
+    <pin-item @activate-pin="lockSidebar()" />
     <form class="app-sidebar-menu">
       <sidebar-select
         :contents="this.currentState"
@@ -27,6 +28,7 @@ import { mapGetters } from "vuex";
 import sidebarTab from "./sidebarTab";
 import sidebarInput from "./sidebarInput";
 import sidebarSelect from "./sidebarSelect";
+import PinItem from "./PinItem";
 
 export default {
   name: "sideBar",
@@ -35,10 +37,13 @@ export default {
     sidebarTab,
     sidebarInput,
     sidebarSelect,
+    PinItem,
   },
 
   data() {
     return {
+      isPinned: false,
+
       sidebarTabs: [
         {
           text: "New Thread",
@@ -119,6 +124,10 @@ export default {
   },
 
   methods: {
+    lockSidebar() {
+      this.isPinned = !this.isPinned;
+    },
+
     setActiveThread(e) {
       this.$store.state.activeThread = e;
     },
@@ -127,32 +136,70 @@ export default {
       const title = document.getElementById("threadTitle");
       const desc = document.getElementById("threadDescription");
       const auth = document.getElementById("threadAuthor");
-      const insertThread = {
-        id: this.getAllThreadsCount + 1,
-        title: title.value,
-        description: desc.value,
-        author: auth.value,
-        date: this.currentDate,
-        content: [],
-      };
 
-      this.$store.commit("addThread", insertThread);
+      //basic input validation...
+      if (title.value == "") {
+        alert("nu ati introdus titlul thread-ului...");
+        return;
+      } else if (desc.value == "") {
+        alert("nu ati introdus descrierea thread-ului...");
+        return;
+      } else if (auth.value == "") {
+        alert("nu ati introdus autorul thread-ului...");
+        return;
+      } else {
+        const insertThread = {
+          id: this.getAllThreadsCount + 1,
+          title: title.value,
+          description: desc.value,
+          author: auth.value,
+          date: this.currentDate,
+          content: [],
+        };
+
+        //push data to $store...
+        this.$store.commit("addThread", insertThread);
+
+        //clear all inputs value after uploading data...
+        title.value = "";
+        desc.value = "";
+        auth.value = "";
+      }
     },
 
     uploadTask() {
+      const threadSelect = document.getElementById("threadSelect");
       const title = document.getElementById("taskTitle");
       const text = document.getElementById("taskContent");
       const auth = document.getElementById("taskAuthor");
-      const insertTask = {
-        id: this.getAllTasksCount + 1,
-        title: title.value,
-        author: auth.value,
-        date: this.currentDate,
-        content: text.value,
-        complete: false,
-        comments: [],
-      };
-      this.$store.commit("addTask", insertTask); //de adaugat obj ca payload...
+
+      //basic input validation...
+      if (threadSelect.value == "false") {
+        alert("nu ati selectat un thread din lista...");
+        return;
+      } else if (title.value == "") {
+        alert("nu ati introdus titlul task-ului...");
+        return;
+      } else if (text.value == "") {
+        alert("nu ati introdus descrierea task-ului...");
+        return;
+      } else if (auth.value == "") {
+        alert("nu ati introdus autorul task-ului...");
+        return;
+      } else {
+        const insertTask = {
+          id: this.getAllTasksCount + 1,
+          title: title.value,
+          author: auth.value,
+          date: this.currentDate,
+          content: text.value,
+          complete: false,
+          comments: [],
+        };
+
+        //push data to $store...
+        this.$store.commit("addTask", insertTask);
+      }
       //clear all inputs value after uploading data...
       title.value = "";
       text.value = "";

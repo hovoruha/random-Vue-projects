@@ -4,7 +4,7 @@
     :id="id"
     @change="$emit('set-active-thread-id', $event.target.value)"
   >
-    <option selected>select thread from dropdown...</option>
+    <option value="false" selected>select thread from dropdown...</option>
     <option :value="item.title" v-for="item in contents" :key="item">
       {{ item.title }}
     </option>

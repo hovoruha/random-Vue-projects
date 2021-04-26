@@ -1,5 +1,10 @@
 <template>
-  <div class="app-showcase-item" v-for="(item, index) in contents" :key="item">
+  <div
+    class="app-showcase-item"
+    v-for="(item, index) in contents"
+    :key="item"
+    @mouseover="getThreadIndex(index)"
+  >
     <div class="app-showcase-item-header">
       <div class="app-showcase-item-header-title">
         <div class="app-showcase-item-header-title-menu">
@@ -26,7 +31,11 @@
       </div>
     </div>
     <div class="app-showcase-item-content">
-      <task-item :contents="item.content" @remove-task="removeTask(index, i)" />
+      <task-item
+        :contents="item.content"
+        @remove-task="removeTask"
+        @complete-task="markCompletedTask"
+      />
     </div>
   </div>
 </template>
@@ -49,14 +58,34 @@ export default {
   emits: ["remove-thread"],
 
   data() {
-    return {};
+    return {
+      threadInd: "",
+    };
   },
 
+  computed: {},
+
   methods: {
-    removeTask(index, i) {
-      // console.log(i + " / " + ind);
-      // this.$store.state.allThreads[index].content.splice(i, 1);
-      console.log(index + " / " + i);
+    getThreadIndex(i) {
+      this.threadInd = i;
+    },
+
+    removeTask(i) {
+      // console.log(this.threadInd + " / " + i);
+      this.$store.state.allThreads[this.threadInd].content.splice(i, 1);
+    },
+
+    markCompletedTask(i) {
+      //toggle the current task complete-status...
+      const currentCompleteStatus = this.$store.state.allThreads[this.threadInd]
+        .content[i].complete;
+      if (currentCompleteStatus === false) {
+        this.$store.state.allThreads[this.threadInd].content[i].complete = true;
+      } else {
+        this.$store.state.allThreads[this.threadInd].content[
+          i
+        ].complete = false;
+      }
     },
   },
 };

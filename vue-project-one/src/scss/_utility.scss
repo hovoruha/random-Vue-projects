@@ -61,3 +61,29 @@
 .item-disable {
   @include item(disable);
 }
+
+//generic pin item...
+.pin-item {
+  color: darken(set-color($txt, default), 12);
+  padding: 10px 15px;
+  text-align: right;
+  transition: all 0.3s ease-in-out;
+
+  i {
+    transform: rotateZ(-90deg);
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover i {
+    cursor: pointer;
+  }
+
+  &.open {
+    i {
+      transform: rotateZ(0deg);
+      color: set-color($txt, danger);
+      text-shadow: 2px 2px 3px set-color($sdw, default);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
