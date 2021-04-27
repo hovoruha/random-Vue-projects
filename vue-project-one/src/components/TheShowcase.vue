@@ -4,6 +4,7 @@
       :contents="this.currentState"
       :date="this.currentDate"
       @remove-thread="this.removeThread"
+      @complete-thread="this.completeThread"
     />
   </div>
 </template>
@@ -19,6 +20,10 @@ export default {
     ShowcaseItem,
   },
 
+  data() {
+    return {};
+  },
+
   computed: {
     ...mapGetters(["currentState", "currentDate"]),
   },
@@ -28,6 +33,16 @@ export default {
       console.log(i);
       this.$store.commit("removeThread", i);
       console.log(this.currentState);
+    },
+
+    completeThread(i) {
+      // console.log(
+      //   "index: " + i + " " + this.$store.state.allThreads[i].complete
+      // );
+      this.$store.state.allThreads[i].complete = true;
+      // console.log(
+      //   "index: " + i + " " + this.$store.state.allThreads[i].complete
+      // );
     },
   },
 };

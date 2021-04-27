@@ -1,5 +1,6 @@
 $bg: (
   default: white,
+  bk: #000,
   primary: lightgray,
   secondary: gray,
   accent1: lightblue,
@@ -11,7 +12,7 @@ $bg-input: (
   primary: #18a1cf,
   danger: #fc8194,
   warning: #f0be2d,
-  valid: #2df05b,
+  valid: #41b668,
   disable: darkgray,
   accent1: lightblue,
   accent2: lightpink,
@@ -26,7 +27,20 @@ $txt: (
   primary: #18a1cf,
   danger: #fc8194,
   warning: #f0be2d,
-  valid: #2df05b,
+  valid: #41b668,
+  disable: darkgray,
+);
+
+$bg-btn: (
+  default: #5c5c5c,
+  wht: #fff,
+  bk: #000,
+  accent1: lightblue,
+  accent2: lightpink,
+  primary: #18a1cf,
+  danger: #fc8194,
+  warning: #f0be2d,
+  valid: #41b668,
   disable: darkgray,
 );
 
@@ -40,7 +54,7 @@ $bord: (
   primary: #18a1cf,
   danger: #fc8194,
   warning: #f0be2d,
-  valid: #2df05b,
+  valid: #41b668,
   disable: darkgray,
   accent1: lightblue,
   accent2: lightpink,

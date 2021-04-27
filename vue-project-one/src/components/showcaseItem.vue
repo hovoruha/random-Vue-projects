@@ -5,11 +5,19 @@
     :key="item"
     @mouseover="getThreadIndex(index)"
   >
+    <base-modal
+      v-if="item.complete"
+      :contentText="modalContentText"
+      :buttonCaption="modalButtonCaption"
+      @reopen-thread="reopenThread(item, index)"
+    />
     <div class="app-showcase-item-header">
       <div class="app-showcase-item-header-title">
         <div class="app-showcase-item-header-title-menu">
-          <span><i class="far fa-check-circle"></i></span>
           <span><i class="fas fa-info-circle"></i></span>
+          <span @click="$emit('complete-thread', index)"
+            ><i class="far fa-check-circle"></i
+          ></span>
           <span @click="$emit('remove-thread', index)"
             ><i class="fas fa-trash-alt"></i
           ></span>
@@ -42,12 +50,14 @@
 
 <script>
 import ShowcaseTaskItem from "./ShowcaseTaskItem";
+import BaseModal from "./BaseModal";
 
 export default {
   name: "ShowcaseItem",
 
   components: {
     ShowcaseTaskItem,
+    BaseModal,
   },
 
   props: {
@@ -55,11 +65,14 @@ export default {
     date: String,
   },
 
-  emits: ["remove-thread"],
+  emits: ["remove-thread", "complete-thread"],
 
   data() {
     return {
       threadInd: "",
+      modalContentText:
+        "This thread is closed. Click the button below to reopen it.",
+      modalButtonCaption: "reopen thread",
     };
   },
 
@@ -86,6 +99,12 @@ export default {
           i
         ].complete = false;
       }
+    },
+
+    reopenThread(item, index) {
+      console.log(index + " " + item.complete);
+      item.complete = false;
+      console.log(item.complete);
     },
   },
 };

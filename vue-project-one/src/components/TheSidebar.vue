@@ -154,6 +154,7 @@ export default {
           description: desc.value,
           author: auth.value,
           date: this.currentDate,
+          complete: false,
           content: [],
         };
 
