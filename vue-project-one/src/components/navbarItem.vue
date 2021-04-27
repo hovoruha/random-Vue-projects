@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: "navbarItem",
+  name: "NavbarItem",
 
   props: {
     contents: Array,

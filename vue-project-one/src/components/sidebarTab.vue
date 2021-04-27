@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "sidebarTab",
+  name: "SidebarTab",
 
   props: {
     content: Array, //initial setat Object...

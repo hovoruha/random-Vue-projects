@@ -6,7 +6,7 @@
         @clickAction="this.activateTab"
       />
     </div>
-    <pin-item @activate-pin="lockSidebar()" />
+    <base-pin-item @activate-pin="lockSidebar()" />
     <form class="app-sidebar-menu">
       <sidebar-select
         :contents="this.currentState"
@@ -25,19 +25,19 @@
 
 <script>
 import { mapGetters } from "vuex";
-import sidebarTab from "./sidebarTab";
-import sidebarInput from "./sidebarInput";
-import sidebarSelect from "./sidebarSelect";
-import PinItem from "./PinItem";
+import SidebarTab from "./SidebarTab";
+import SidebarInput from "./SidebarInput";
+import SidebarSelect from "./SidebarSelect";
+import BasePinItem from "./BasePinItem";
 
 export default {
-  name: "sideBar",
+  name: "TheSidebar",
 
   components: {
-    sidebarTab,
-    sidebarInput,
-    sidebarSelect,
-    PinItem,
+    SidebarTab,
+    SidebarInput,
+    SidebarSelect,
+    BasePinItem,
   },
 
   data() {

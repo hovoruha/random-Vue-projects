@@ -33,7 +33,7 @@
 
 <script>
 export default {
-  name: "TaskItem",
+  name: "ShowcaseTaskItem",
 
   props: {
     contents: Array,

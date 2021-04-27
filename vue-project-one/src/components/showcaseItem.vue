@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="app-showcase-item-content">
-      <task-item
+      <showcase-task-item
         :contents="item.content"
         @remove-task="removeTask"
         @complete-task="markCompletedTask"
@@ -41,13 +41,13 @@
 </template>
 
 <script>
-import TaskItem from "./TaskItem";
+import ShowcaseTaskItem from "./ShowcaseTaskItem";
 
 export default {
-  name: "showcaseItem",
+  name: "ShowcaseItem",
 
   components: {
-    TaskItem,
+    ShowcaseTaskItem,
   },
 
   props: {

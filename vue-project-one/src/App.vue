@@ -1,26 +1,26 @@
 <template>
   <div class="wrapper">
-    <app-navbar />
-    <app-sidebar />
-    <app-showcase />
-    <app-footer />
+    <the-navbar />
+    <the-sidebar />
+    <the-showcase />
+    <the-footer />
   </div>
 </template>
 
 <script>
-import appNavbar from "./components/navbar";
-import appSidebar from "./components/sidebar";
-import appShowcase from "./components/showcase";
-import appFooter from "./components/appfooter";
+import TheNavbar from "./components/TheNavbar";
+import TheSidebar from "./components/TheSidebar";
+import TheShowcase from "./components/TheShowcase";
+import TheFooter from "./components/TheFooter";
 
 export default {
   name: "App",
 
   components: {
-    appNavbar,
-    appSidebar,
-    appShowcase,
-    appFooter,
+    TheNavbar,
+    TheSidebar,
+    TheShowcase,
+    TheFooter,
   },
 };
 </script>

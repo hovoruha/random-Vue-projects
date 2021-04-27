@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: "sidebarInput",
+  name: "SidebarInput",
 
   props: {
     contents: Array,

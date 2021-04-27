@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: "sidebarSelect",
+  name: "SidebarSelect",
 
   props: {
     contents: Array,

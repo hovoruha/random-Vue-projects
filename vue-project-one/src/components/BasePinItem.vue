@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: "PinItem",
+  name: "BasePinItem",
 
   emits: ["activate-pin"],
 

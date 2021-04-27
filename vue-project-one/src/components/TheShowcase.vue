@@ -10,13 +10,13 @@
 
 <script>
 import { mapGetters } from "vuex";
-import showcaseItem from "./showcaseItem";
+import ShowcaseItem from "./ShowcaseItem";
 
 export default {
-  name: "showcase",
+  name: "TheShowcase",
 
   components: {
-    showcaseItem,
+    ShowcaseItem,
   },
 
   computed: {

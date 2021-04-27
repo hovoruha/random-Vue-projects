@@ -8,13 +8,13 @@
 </template>
 
 <script>
-import navbarItem from "./navbarItem";
+import NavbarItem from "./NavbarItem";
 
 export default {
-  name: "navBar",
+  name: "TheNavbar",
 
   components: {
-    navbarItem,
+    NavbarItem,
   },
 
   data() {
