@@ -3,6 +3,8 @@ import { createStore } from "vuex";
 const store = createStore({
   state: {
     activeThread: "",
+    threadIndex: "",
+    taskIndex: "",
 
     allThreads: [
       {
@@ -22,7 +24,38 @@ const store = createStore({
             content:
               "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita commodi recusandae eum a eveniet quo fugiat hic voluptatum omnis libero nihil esse architecto cum nulla id ipsum, accusamus laborum illo eaque.",
             complete: false,
-            comments: [],
+            chatState: false,
+            chatCloseDate: "10/02/2021",
+            comments: [
+              {
+                id: 1,
+                author: "User 1",
+                date: "10/02/2021",
+                comment:
+                  "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+              },
+              {
+                id: 2,
+                author: "User 2",
+                date: "10/02/2021",
+                comment:
+                  "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+              },
+              {
+                id: 3,
+                author: "User 3",
+                date: "10/02/2021",
+                comment:
+                  "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+              },
+              {
+                id: 4,
+                author: "User 4",
+                date: "10/02/2021",
+                comment:
+                  "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+              },
+            ],
           },
           {
             id: 2,
@@ -32,6 +65,8 @@ const store = createStore({
             content:
               "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita commodi recusandae eum a eveniet quo fugiat hic voluptatum omnis libero nihil esse architecto cum nulla id ipsum, accusamus laborum illo eaque.",
             complete: false,
+            chatState: false,
+            chatCloseDate: "10/02/2021",
             comments: [],
           },
           {
@@ -42,6 +77,8 @@ const store = createStore({
             content:
               "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita commodi recusandae eum a eveniet quo fugiat hic voluptatum omnis libero nihil esse architecto cum nulla id ipsum, accusamus laborum illo eaque.",
             complete: true,
+            chatState: false,
+            chatCloseDate: "10/02/2021",
             comments: [],
           },
           {
@@ -52,6 +89,8 @@ const store = createStore({
             content:
               "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita commodi recusandae eum a eveniet quo fugiat hic voluptatum omnis libero nihil esse architecto cum nulla id ipsum, accusamus laborum illo eaque.",
             complete: false,
+            chatState: false,
+            chatCloseDate: "10/02/2021",
             comments: [],
           },
           {
@@ -62,6 +101,8 @@ const store = createStore({
             content:
               "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita commodi recusandae eum a eveniet quo fugiat hic voluptatum omnis libero nihil esse architecto cum nulla id ipsum, accusamus laborum illo eaque.",
             complete: false,
+            chatState: false,
+            chatCloseDate: "10/02/2021",
             comments: [],
           },
         ],
@@ -83,6 +124,8 @@ const store = createStore({
             content:
               "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita commodi recusandae eum a eveniet quo fugiat hic voluptatum omnis libero nihil esse architecto cum nulla id ipsum, accusamus laborum illo eaque.",
             complete: false,
+            chatState: false,
+            chatCloseDate: "10/02/2021",
             comments: [],
           },
           {
@@ -93,6 +136,8 @@ const store = createStore({
             content:
               "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita commodi recusandae eum a eveniet quo fugiat hic voluptatum omnis libero nihil esse architecto cum nulla id ipsum, accusamus laborum illo eaque.",
             complete: false,
+            chatState: false,
+            chatCloseDate: "10/02/2021",
             comments: [],
           },
         ],
@@ -117,12 +162,21 @@ const store = createStore({
       return state.allThreads[indexInThreads].content.length;
     },
 
+    getAllChatComments: (state) => {
+      return state.allThreads[state.threadIndex].content[state.taskIndex]
+        .comments.length;
+    },
+
     currentDate: () => {
       const date = new Date();
-      const year = date.getFullYear();
-      const month = date.getMonth();
-      const day = date.getDay();
-      const currentDate = day + " / " + month + " / " + year;
+      const year = date.getUTCFullYear();
+      const month = date.getUTCMonth();
+      const day = date.getUTCDay();
+      const h = date.getUTCHours();
+      const m = date.getUTCMinutes();
+      const s = date.getUTCSeconds();
+      const currentDate =
+        day + "/" + month + "/" + year + " - " + h + ":" + m + ":" + s;
 
       return currentDate;
     },
@@ -144,6 +198,20 @@ const store = createStore({
       );
       //use index to focus onto the content array-prop
       state.allThreads[threadIndex].content.push(obj);
+    },
+
+    addTaskComment(state, payload) {
+      state.allThreads[payload.thInd].content[payload.tkInd].comments.push(
+        payload.obj
+      );
+      // console.log(
+      //   state.allThreads[payload.thInd].content[payload.tkInd].comments
+      // );
+    },
+
+    setThreadAndTaskIndex(state, payload) {
+      state.threadIndex = payload.thInd;
+      state.taskIndex = payload.tkInd;
     },
   },
 

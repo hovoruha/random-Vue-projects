@@ -64,7 +64,7 @@
           }
 
           span:first-child:hover i {
-            color: set-color($txt, valid);
+            color: set-color($txt, primary);
             transition: color 0.3s ease;
           }
           span:last-child:hover i {
@@ -72,7 +72,7 @@
             transition: color 0.3s ease;
           }
           span:nth-child(2):hover i {
-            color: set-color($txt, primary);
+            color: set-color($txt, valid);
             transition: color 0.3s ease;
           }
         }

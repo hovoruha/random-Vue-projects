@@ -41,6 +41,7 @@
     <div class="app-showcase-item-content">
       <showcase-task-item
         :contents="item.content"
+        :threadIndex="index"
         @remove-task="removeTask"
         @complete-task="markCompletedTask"
       />

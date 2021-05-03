@@ -195,6 +195,8 @@ export default {
           date: this.currentDate,
           content: text.value,
           complete: false,
+          chatState: false,
+          chatCloseDate: "",
           comments: [],
         };
 

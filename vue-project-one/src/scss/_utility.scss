@@ -95,3 +95,75 @@
 .base-modal-row {
   @include modal-flex-row(center, center, nowrap);
 }
+
+//basic three sections container...
+.container-col {
+  @include container-col(accent1, 220px, 2);
+
+  &-header {
+    @include flex-row(flex-start, space-between, nowrap);
+    width: 100%;
+    padding: 5px;
+    border-bottom: 1px solid set-color($bord, default);
+
+    .close-icon {
+      padding: 0 5px 0 10px;
+
+      &:hover {
+        cursor: pointer;
+        color: set-color($txt, danger);
+      }
+    }
+  }
+
+  &-body {
+    width: 100%;
+    height: 280px;
+    padding: 5px;
+    font-size: 12px;
+    color: set-color($txt, default);
+    overflow-y: auto;
+  }
+
+  &-footer {
+    width: 100%;
+    padding: 5px;
+    border-top: 1px solid set-color($bord, default);
+  }
+}
+
+.container-row {
+  @include container-row(accent1, 190px, 2.5);
+  margin-bottom: 5px;
+  box-shadow: none;
+
+  &-header {
+    @include flex-row(flex-start, space-between, nowrap);
+    width: 100%;
+    padding: 5px;
+    border-bottom: 1px solid set-color($bord, disable);
+
+    .close-icon {
+      padding: 0 5px 0 10px;
+
+      &:hover {
+        cursor: pointer;
+        color: set-color($txt, danger);
+      }
+    }
+  }
+
+  &-body {
+    width: 100%;
+    padding: 5px;
+    font-size: 12px;
+    color: set-color($txt, default);
+    overflow: auto;
+  }
+
+  &-footer {
+    width: 100%;
+    padding: 5px;
+    border-top: 1px solid set-color($bord, default);
+  }
+}
