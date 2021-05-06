@@ -14,6 +14,13 @@
         v-if="this.hasSelection"
         @set-active-thread-id="setActiveThread"
       />
+      <div v-if="this.hasPriorities">
+        <base-slide-toggler
+          :content="this.togglers"
+          @activate-toggler="activePriority"
+          @set-open="setOpen"
+        />
+      </div>
       <sidebar-input
         v-for="item in this.sidebarTabs"
         :key="item"
@@ -29,6 +36,7 @@ import SidebarTab from "./SidebarTab";
 import SidebarInput from "./SidebarInput";
 import SidebarSelect from "./SidebarSelect";
 import BasePinItem from "./BasePinItem";
+import BaseSlideToggler from "./BaseSlideToggler";
 
 export default {
   name: "TheSidebar",
@@ -38,6 +46,7 @@ export default {
     SidebarInput,
     SidebarSelect,
     BasePinItem,
+    BaseSlideToggler,
   },
 
   data() {
@@ -49,6 +58,7 @@ export default {
           text: "New Thread",
           isActive: true,
           threadSelection: false,
+          priorityTogglers: false,
           inputs: [
             {
               id: "threadTitle",
@@ -80,6 +90,7 @@ export default {
           text: "New Task",
           isActive: false,
           threadSelection: true,
+          priorityTogglers: true,
           inputs: [
             {
               id: "taskTitle",
@@ -109,8 +120,16 @@ export default {
         },
       ],
 
+      togglers: [
+        { class: "critical", value: "critical", active: false },
+        { class: "danger", value: "urgent", active: false },
+        { class: "warning", value: "important", active: false },
+      ],
+
       hasSelection: "",
       selectionId: "threadSelect",
+      hasPriorities: "",
+      prioritySetters: "",
     };
   },
 
@@ -124,6 +143,21 @@ export default {
   },
 
   methods: {
+    setOpen(i) {
+      //reset all togglers to false state (unchecked...)
+      this.togglers.forEach((toggle) => {
+        toggle.active = false;
+      });
+      console.log(this.togglers[i].active);
+      this.togglers[i].active = !this.togglers[i].active;
+      console.log(this.togglers[i].active);
+    },
+
+    activePriority(e) {
+      this.prioritySetters = e.value;
+      console.log(this.prioritySetters);
+    },
+
     lockSidebar() {
       this.isPinned = !this.isPinned;
     },
@@ -224,6 +258,10 @@ export default {
       this.sidebarTabs[tabIndexInTabsArray].isActive = true;
       //mark that the tab poseses a thread selection field
       this.hasSelection = this.sidebarTabs[tabIndexInTabsArray].threadSelection;
+      //mark that the tab poseses priority togglers
+      this.hasPriorities = this.sidebarTabs[
+        tabIndexInTabsArray
+      ].priorityTogglers;
     },
   },
 };
