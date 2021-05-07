@@ -18,6 +18,7 @@ const store = createStore({
         content: [
           {
             id: 1,
+            priority: "primary",
             title: "This is the first task",
             author: "Hovoruha Octavian",
             date: "10/02/2021",
@@ -59,6 +60,7 @@ const store = createStore({
           },
           {
             id: 2,
+            priority: "primary",
             title: "This is the second task",
             author: "Hovoruha Octavian",
             date: "10/02/2021",
@@ -71,6 +73,7 @@ const store = createStore({
           },
           {
             id: 3,
+            priority: "primary",
             title: "This is the third task",
             author: "Hovoruha Octavian",
             date: "10/02/2021",
@@ -83,6 +86,7 @@ const store = createStore({
           },
           {
             id: 4,
+            priority: "primary",
             title: "This is the fourth task",
             author: "Hovoruha Octavian",
             date: "10/02/2021",
@@ -95,6 +99,7 @@ const store = createStore({
           },
           {
             id: 5,
+            priority: "primary",
             title: "This is the fifth task",
             author: "Hovoruha Octavian",
             date: "10/02/2021",
@@ -118,6 +123,7 @@ const store = createStore({
         content: [
           {
             id: 1,
+            priority: "primary",
             title: "This is the first task",
             author: "Hovoruha Octavian",
             date: "10/02/2021",
@@ -130,6 +136,7 @@ const store = createStore({
           },
           {
             id: 2,
+            priority: "primary",
             title: "This is the first task",
             author: "Hovoruha Octavian",
             date: "10/02/2021",

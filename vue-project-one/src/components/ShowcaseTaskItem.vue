@@ -2,8 +2,8 @@
   <div
     v-for="(item, i) in contents"
     :key="item"
-    class="task-item item-primary"
-    :class="item.complete ? 'item-valid' : ''"
+    class="task-item"
+    :class="item.complete ? 'item-valid' : 'item-' + item.priority"
   >
     <base-chat-section
       v-if="item.chatState"

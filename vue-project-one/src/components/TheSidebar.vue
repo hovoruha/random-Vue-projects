@@ -14,11 +14,11 @@
         v-if="this.hasSelection"
         @set-active-thread-id="setActiveThread"
       />
-      <div v-if="this.hasPriorities">
+      <div class="app-sidebar-togglerMenu" v-if="this.hasPriorities">
         <base-slide-toggler
           :content="this.togglers"
           @activate-toggler="activePriority"
-          @set-open="setOpen"
+          @set-open="setOpenToggle"
         />
       </div>
       <sidebar-input
@@ -121,15 +121,30 @@ export default {
       ],
 
       togglers: [
-        { class: "critical", value: "critical", active: false },
-        { class: "danger", value: "urgent", active: false },
-        { class: "warning", value: "important", active: false },
+        {
+          info: "set priority CRITICAL",
+          class: "critical",
+          value: "critical",
+          active: false,
+        },
+        {
+          info: "set priority URGENT",
+          class: "danger",
+          value: "danger",
+          active: false,
+        },
+        {
+          info: "set priority IMPORTANT",
+          class: "warning",
+          value: "warning",
+          active: false,
+        },
       ],
 
       hasSelection: "",
       selectionId: "threadSelect",
       hasPriorities: "",
-      prioritySetters: "",
+      prioritySetters: "primary",
     };
   },
 
@@ -143,19 +158,24 @@ export default {
   },
 
   methods: {
-    setOpen(i) {
-      //reset all togglers to false state (unchecked...)
-      this.togglers.forEach((toggle) => {
-        toggle.active = false;
-      });
-      console.log(this.togglers[i].active);
-      this.togglers[i].active = !this.togglers[i].active;
-      console.log(this.togglers[i].active);
+    setOpenToggle(i) {
+      if (this.togglers[i].active) {
+        this.togglers[i].active = false;
+        this.prioritySetters = "primary";
+      } else {
+        //reset all togglers to false state (unchecked...)
+        this.togglers.forEach((toggle) => {
+          toggle.active = false;
+        });
+
+        this.togglers[i].active = !this.togglers[i].active;
+      }
     },
 
     activePriority(e) {
+      // console.log(this.prioritySetters);
       this.prioritySetters = e.value;
-      console.log(this.prioritySetters);
+      // console.log(this.prioritySetters);
     },
 
     lockSidebar() {
@@ -224,6 +244,7 @@ export default {
       } else {
         const insertTask = {
           id: this.getAllTasksCount + 1,
+          priority: this.prioritySetters, //new
           title: title.value,
           author: auth.value,
           date: this.currentDate,

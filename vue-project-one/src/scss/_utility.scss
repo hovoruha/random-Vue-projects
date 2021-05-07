@@ -61,6 +61,9 @@
 .item-disable {
   @include item(disable);
 }
+.item-critical {
+  @include item(bk);
+}
 
 //generic pin item...
 .pin-item {

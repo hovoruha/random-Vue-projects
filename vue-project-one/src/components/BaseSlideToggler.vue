@@ -1,19 +1,20 @@
 <template>
-  <label
-    v-for="(item, index) in content"
-    :key="item"
-    class="slide-toggler"
-    :class="item.active ? item.class + ' open' : item.class"
-  >
-    <input
-      type="radio"
-      :value="item.value"
-      @click="
-        $emit('activate-toggler', $event.target);
-        $emit('set-open', index);
-      "
-    />
-  </label>
+  <div v-for="(item, index) in content" :key="item">
+    <span>{{ item.info }}</span>
+    <label
+      class="slide-toggler"
+      :class="item.active ? item.class + ' open' : item.class"
+    >
+      <input
+        type="radio"
+        :value="item.value"
+        @click="
+          $emit('activate-toggler', $event.target);
+          $emit('set-open', index, $event, target);
+        "
+      />
+    </label>
+  </div>
 </template>
 
 <script>
@@ -44,12 +45,24 @@ export default {
   --valid: #41b668;
 } */
 
+div {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+div span {
+  font-size: 11px;
+  color: #5c5c5c;
+}
+
 .slide-toggler {
   position: relative;
-  display: block;
+  display: inline-block;
   width: 30px;
   height: 10px;
-  background: lightgray;
+  background: darkgray;
   border-radius: 5px;
   transition: all 0.3s ease-in-out;
   margin: 20px;
