@@ -771,12 +771,13 @@
 .app-showcase-item-content .task-item-header {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   flex-wrap: nowrap;
   border-bottom: 1px solid darkgray;
 }
 .app-showcase-item-content .task-item-header-title {
+  max-width: 350px;
   font-size: 14px;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
