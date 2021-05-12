@@ -1,11 +1,25 @@
 import { createStore } from "vuex";
 
 const store = createStore({
-  state: {},
+  state: {
+    navbarIsVisible: false, //folosit de AppNavbar si de AppHomepage...
+  },
 
-  getters: {},
+  getters: {
+    getNavbarState(state) {
+      return state.navbarIsVisible;
+    },
+  },
 
-  mutations: {},
+  mutations: {
+    displayNavbar(state) {
+      state.navbarIsVisible = true;
+    },
+
+    hideNavbar(state) {
+      state.navbarIsVisible = false;
+    },
+  },
 
   actions: {},
 });
