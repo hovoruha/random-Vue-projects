@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="close-btn"
-    :class="btnClass"
-    @click="$emit('close-parent'), closeParent($event)"
-  >
+  <div class="close-btn" :class="btnClass" @click="$emit('close-parent')">
     <i class="fas fa-times"></i>
   </div>
 </template>
@@ -17,6 +13,7 @@ export default {
   emits: ["close-parent"],
 
   methods: {
+    //only use if needed to replace the .open class with .close... otherwhise only use the emitted event.
     closeParent(e) {
       const parent = e.target.parentElement.parentElement;
 

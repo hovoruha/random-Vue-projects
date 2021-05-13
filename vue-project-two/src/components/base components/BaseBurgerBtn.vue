@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="burger-btn"
-    :class="btnClass"
-    @click="$emit('open-menu'), openMenu($event)"
-  >
+  <div class="burger-btn" :class="btnClass" @click="$emit('open-menu')">
     <i class="fas fa-bars"></i>
   </div>
 </template>
@@ -17,6 +13,7 @@ export default {
   emits: ["open-menu"],
 
   methods: {
+    //only use if needed to replace the .close class with .open... otherwhise only use the emitted event.
     openMenu(e) {
       const parent = e.target.parentElement.parentElement;
       const menu =
@@ -52,12 +49,12 @@ export default {
 }
 
 .burger-btn.top-right {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 20px;
 }
 .burger-btn.top-left {
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 20px;
 }

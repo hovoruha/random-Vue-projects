@@ -27,7 +27,8 @@ export default {
   --wh: #fff;
   --gray: gray;
   --lightgray: lightgray;
-  --green: #72ad72;
+  --green1: #41b883;
+  --green2: #34495e;
 }
 /* main resets... */
 * {
@@ -48,6 +49,7 @@ a:visited {
 body {
   width: 100%;
   height: 100%;
+  background-color: var(--green2);
 }
 
 .app-wrapper {
