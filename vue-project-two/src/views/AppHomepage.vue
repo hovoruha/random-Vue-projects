@@ -1,5 +1,5 @@
 <template>
-  <div class="app-homepage">
+  <div class="app-homepage" id="homepage">
     <base-burger-btn class="top-left" @open-menu="openNavbar" />
     <div class="app-homepage-header">
       <div class="app-homepage-header-title">
@@ -36,6 +36,8 @@ export default {
         width: 150,
         alt: "my avatar photo...",
       },
+
+      scrollValue: "",
     };
   },
 
@@ -43,6 +45,33 @@ export default {
     openNavbar() {
       this.$store.commit("displayNavbar");
     },
+
+    testScroll() {
+      // console.log("rulez la scroll");
+      const elem = document.getElementsByTagName("html")[0];
+      // const par = document.getElementById('appWrapp');
+      // const hom = document.getElementById("homepage");
+      const header = document.getElementsByClassName("app-homepage-header")[0];
+      this.scrollValue = elem.scrollTop;
+      console.log(this.scrollValue);
+      if (this.scrollValue > 126) {
+        header.classList.add("minimized");
+        // console.log("goz");
+
+        // this.scrollValue = 127;
+      } else {
+        header.classList.remove("minimized");
+        // console.log("moz");
+      }
+    },
+  },
+
+  mounted() {
+    window.addEventListener("scroll", this.testScroll);
+  },
+
+  deactivated() {
+    window.addEventListener("scroll", this.testScroll);
   },
 };
 </script>
@@ -52,7 +81,6 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
-  /* height: 100vh; */
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -85,5 +113,17 @@ export default {
 .app-homepage .app-homepage-header .app-homepage-header-title h3 {
   text-decoration: underline;
   /* text-transform: uppercase; */
+}
+
+.app-homepage-header.minimized {
+  position: sticky;
+  z-index: -1;
+  top: 0;
+  /* left: 0; */
+  height: 50px;
+}
+
+.app-homepage-header.minimized #myAvatar {
+  display: none;
 }
 </style>

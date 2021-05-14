@@ -1,5 +1,5 @@
 <template>
-  <div class="app-wrapper">
+  <div class="app-wrapper" id="appWrapp">
     <app-navbar />
     <router-view></router-view>
   </div>
@@ -15,8 +15,14 @@ export default {
   },
 
   data() {
-    return {};
+    return {
+      scrollValue: "",
+    };
   },
+
+  mounted() {},
+
+  methods: {},
 };
 </script>
 
@@ -41,6 +47,7 @@ export default {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+a,
 a:active,
 a:visited {
   color: inherit;
@@ -53,6 +60,7 @@ body {
 }
 
 .app-wrapper {
+  position: relative;
   width: 100%;
   height: 100%;
   position: relative;
