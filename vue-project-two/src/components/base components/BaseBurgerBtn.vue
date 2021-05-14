@@ -20,7 +20,6 @@ export default {
         parent.previousElementSibling !== null
           ? parent.previousElementSibling
           : parent.nextElementSibling;
-      //   console.log(menu);
 
       if (menu.classList.contains("close")) {
         menu.classList.remove("close");
@@ -33,6 +32,7 @@ export default {
 
 <style scoped>
 .burger-btn {
+  z-index: 1;
   color: var(--bk);
 }
 .burger-btn:hover {
@@ -41,6 +41,7 @@ export default {
 }
 
 .burger-btn.wh {
+  z-index: 1;
   color: var(--wh);
 }
 .burger-btn.wh:hover {
@@ -49,12 +50,12 @@ export default {
 }
 
 .burger-btn.top-right {
-  position: fixed;
+  position: absolute;
   top: 20px;
   right: 20px;
 }
 .burger-btn.top-left {
-  position: fixed;
+  position: absolute;
   top: 20px;
   left: 20px;
 }

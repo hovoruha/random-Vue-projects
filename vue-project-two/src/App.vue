@@ -1,17 +1,22 @@
 <template>
   <div class="app-wrapper" id="appWrapp">
     <app-navbar />
+    <div class="container">
+      <base-burger-btn class="top-left" @open-menu="openNavbar" />
+    </div>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 import AppNavbar from "./components/AppNavbar";
+import BaseBurgerBtn from "./components/base components/BaseBurgerBtn";
 
 export default {
   name: "App",
   components: {
     AppNavbar,
+    BaseBurgerBtn,
   },
 
   data() {
@@ -20,9 +25,37 @@ export default {
     };
   },
 
-  mounted() {},
+  methods: {
+    openNavbar() {
+      this.$store.commit("displayNavbar");
+    },
 
-  methods: {},
+    testScroll() {
+      const elem = document.getElementsByTagName("html")[0];
+      const header = document.getElementsByClassName("container")[0];
+      const burger = document.getElementsByClassName("burger-btn")[0];
+      this.scrollValue = elem.scrollTop;
+
+      // console.log(this.scrollValue);
+      if (this.scrollValue > 168) {
+        header.classList.add("scrolled");
+        burger.classList.add("scrolled");
+        // console.log("goz");
+      } else {
+        header.classList.remove("scrolled");
+        burger.classList.remove("scrolled");
+        // console.log("moz");
+      }
+    },
+  },
+
+  mounted() {
+    window.addEventListener("scroll", this.testScroll);
+  },
+
+  deactivated() {
+    window.addEventListener("scroll", this.testScroll);
+  },
 };
 </script>
 
@@ -66,7 +99,31 @@ body {
   position: relative;
 }
 
-/* utility classes... */
+.app-wrapper .burger-btn {
+  font-size: 25px;
+  color: var(--bk);
+  transition: all 0.3s ease-in-out;
+}
 
+.app-wrapper .burger-btn.scrolled {
+  color: var(--lightgray);
+  transition: all 0.3s ease-in-out;
+}
+
+.app-wrapper .container {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 60px;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.app-wrapper .container.scrolled {
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease-in-out;
+}
 /* _____________________ */
 </style>

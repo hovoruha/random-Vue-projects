@@ -28,6 +28,7 @@ export default {
       links: [
         { destination: "/", text: "Home", run: this.hideNavbar },
         { destination: "/about", text: "About", run: this.hideNavbar },
+        { destination: "/projects", text: "My work", run: this.hideNavbar },
         { destination: "/contact", text: "Contact", run: this.hideNavbar },
       ],
     };
@@ -47,8 +48,8 @@ export default {
 
 <style scoped>
 .app-navbar {
-  z-index: 1;
-  position: absolute;
+  z-index: 100;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;

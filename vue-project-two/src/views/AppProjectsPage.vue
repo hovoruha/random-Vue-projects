@@ -1,8 +1,8 @@
 <template>
-  <div class="app-contact">
+  <div class="app-projects">
     <base-header>
-      <h3>Means of getting in contact</h3>
-      <!-- <h4>so far...</h4> -->
+      <h3>Various projects</h3>
+      <h4>WebDev, Custom VBA apps & industrial engineering related...</h4>
       <base-avatar :parameters="avatarProps" />
     </base-header>
     <base-section></base-section>
@@ -16,7 +16,7 @@ import BaseAvatar from "../components/base components/BaseAvatar";
 import BaseSection from "../components/base components/BaseSection.vue";
 
 export default {
-  name: "AppContactPage",
+  name: "AppProjectsPage",
 
   components: {
     BaseHeader,
@@ -28,9 +28,9 @@ export default {
     return {
       avatarProps: {
         id: "xpTree",
-        src: require("../assets/Contact.jpg"),
+        src: require("../assets/Projects.jpg"),
         width: 150,
-        alt: "contact photo...",
+        alt: "xp tree photo...",
       },
     };
   },
@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style scoped>
-.app-contact {
+.app-projects {
   position: relative;
   width: 100%;
   height: 100%;
@@ -48,13 +48,13 @@ export default {
   justify-content: center;
 }
 
-.app-contact .header #xpTree {
+.app-projects .header #xpTree {
   position: absolute;
   left: calc(100vw / 2 - 77px);
   top: 125px;
 }
 
-.app-contact .header-title *:first-child {
+.app-projects .header-title *:first-child {
   text-decoration: underline;
   /* text-transform: uppercase; */
 }
