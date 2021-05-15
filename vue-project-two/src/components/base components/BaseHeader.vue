@@ -14,10 +14,11 @@ export default {
 
 <style scoped>
 .header {
-  /* position: relative; */
+  position: relative;
   width: 100%;
   height: 200px;
-  background-color: var(--green1);
+  /* background-color: var(--green1); */
+  background-color: rgba(65, 184, 131, 0.8);
 }
 
 .header-title {

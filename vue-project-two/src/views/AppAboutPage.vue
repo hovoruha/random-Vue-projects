@@ -5,15 +5,35 @@
       <h4>so far...</h4>
       <base-avatar :parameters="avatarProps" />
     </base-header>
-    <base-section></base-section>
+    <base-section>
+      <timeline>
+        <timeline-item
+          v-for="item in getAboutPageContents"
+          :key="item"
+          :class="[item.position]"
+        >
+          <template v-slot:title
+            ><h4>{{ item.title }}</h4></template
+          >
+          <template v-slot:subtitle
+            ><h5>{{ item.subtitle }}</h5></template
+          >
+          <template v-slot:content
+            ><p>{{ item.content }}</p></template
+          >
+        </timeline-item>
+      </timeline>
+    </base-section>
   </div>
 </template>
 
 <script>
-// import { mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 import BaseHeader from "../components/base components/BaseHeader.vue";
-import BaseAvatar from "../components/base components/BaseAvatar";
+import BaseAvatar from "../components/base components/BaseAvatar.vue";
 import BaseSection from "../components/base components/BaseSection.vue";
+import Timeline from "../components/Timeline.vue";
+import TimelineItem from "../components/TimelineItem.vue";
 
 export default {
   name: "AppAboutPage",
@@ -22,6 +42,8 @@ export default {
     BaseHeader,
     BaseAvatar,
     BaseSection,
+    Timeline,
+    TimelineItem,
   },
 
   data() {
@@ -33,6 +55,10 @@ export default {
         alt: "xp tree photo...",
       },
     };
+  },
+
+  computed: {
+    ...mapGetters(["getAboutPageContents"]),
   },
 };
 </script>
@@ -56,6 +82,9 @@ export default {
 
 .app-about .header-title *:first-child {
   text-decoration: underline;
-  /* text-transform: uppercase; */
+}
+
+p {
+  line-height: 1rem;
 }
 </style>

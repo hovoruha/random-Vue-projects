@@ -14,6 +14,7 @@ export default {
 .base-section {
   width: 100%;
   height: 100%;
+  background-color: var(--green2);
   padding: 100px 20px 10px 20px;
 }
 </style>

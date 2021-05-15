@@ -21,6 +21,7 @@ export default {
 
 <style scoped>
 .avatar {
+  z-index: 50;
   display: inline-block;
   line-height: 0;
   border-radius: 50%;

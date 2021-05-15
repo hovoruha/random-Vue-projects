@@ -86,10 +86,20 @@ a:visited {
   color: inherit;
 }
 
+html {
+  width: 100%;
+  height: 100%;
+  background-color: var(--green2);
+}
+
 body {
   width: 100%;
   height: 100%;
   background-color: var(--green2);
+  /* background-image: url("assets/webie-devie(2).jpg"); */
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .app-wrapper {
@@ -111,7 +121,7 @@ body {
 }
 
 .app-wrapper .container {
-  z-index: 1;
+  z-index: 51;
   position: fixed;
   top: 0;
   right: 0;

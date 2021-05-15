@@ -30,6 +30,44 @@ const store = createStore({
           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur natus animi reiciendis eligendi magni ipsa. Facilis, itaque delectus repellendus voluptatibus deserunt nemo amet sit? Magni sequi at dignissimos blanditiis. Libero.",
       },
     ],
+
+    aboutPageContents: [
+      {
+        title: "Lorem ipsum",
+        subtitle: "Lorem ipsum dolor sit amet, consectetur",
+        content:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur natus animi reiciendis eligendi magni ipsa. Facilis, itaque delectus repellendus voluptatibus deserunt nemo amet sit?",
+        position: "left",
+      },
+      {
+        title: "Lorem ipsum",
+        subtitle: "Lorem ipsum dolor sit amet, consectetur",
+        content:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur natus animi reiciendis eligendi magni ipsa. Facilis, itaque delectus repellendus voluptatibus deserunt nemo amet sit?",
+        position: "right",
+      },
+      {
+        title: "Lorem ipsum",
+        subtitle: "Lorem ipsum dolor sit amet, consectetur",
+        content:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur natus animi reiciendis eligendi magni ipsa. Facilis, itaque delectus repellendus voluptatibus deserunt nemo amet sit?",
+        position: "left",
+      },
+      {
+        title: "Lorem ipsum",
+        subtitle: "Lorem ipsum dolor sit amet, consectetur",
+        content:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur natus animi reiciendis eligendi magni ipsa. Facilis, itaque delectus repellendus voluptatibus deserunt nemo amet sit?",
+        position: "right",
+      },
+      {
+        title: "Lorem ipsum",
+        subtitle: "Lorem ipsum dolor sit amet, consectetur",
+        content:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur natus animi reiciendis eligendi magni ipsa. Facilis, itaque delectus repellendus voluptatibus deserunt nemo amet sit?",
+        position: "left",
+      },
+    ],
   },
 
   getters: {
@@ -39,6 +77,10 @@ const store = createStore({
 
     getHomepageContents(state) {
       return state.homepageContents;
+    },
+
+    getAboutPageContents(state) {
+      return state.aboutPageContents;
     },
   },
 
