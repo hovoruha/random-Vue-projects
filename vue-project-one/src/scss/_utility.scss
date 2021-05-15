@@ -22,6 +22,15 @@
   @include input(disable);
 }
 
+//select drop-down_______________
+.select {
+  @include select(default);
+}
+
+.select-danger {
+  @include select(danger);
+}
+
 //butoane cu bg transparent______
 .btn {
   @include btn(default);
@@ -99,7 +108,66 @@
   @include modal-flex-row(center, center, nowrap);
 }
 
-//basic three sections container...
+//generic flex containers...
+.container-flex-rccw {
+  @include flex-row(center, center, wrap);
+}
+.container-flex-rccnw {
+  @include flex-row(center, center, nowrap);
+}
+//__________
+.container-flex-rscw {
+  @include flex-row(flex-start, center, wrap);
+}
+.container-flex-rscnw {
+  @include flex-row(flex-start, center, nowrap);
+}
+.container-flex-rcsw {
+  @include flex-row(center, flex-start, wrap);
+}
+.container-flex-rcsnw {
+  @include flex-row(center, flex-start, nowrap);
+}
+.container-flex-rssw {
+  @include flex-row(flex-start, flex-start, wrap);
+}
+.container-flex-rssnw {
+  @include flex-row(flex-start, flex-start, nowrap);
+}
+//__________
+.container-flex-recw {
+  @include flex-row(flex-end, center, wrap);
+}
+.container-flex-recnw {
+  @include flex-row(flex-end, center, nowrap);
+}
+.container-flex-rcew {
+  @include flex-row(center, flex-end, wrap);
+}
+.container-flex-rcenw {
+  @include flex-row(center, flex-end, nowrap);
+}
+.container-flex-reew {
+  @include flex-row(flex-end, flex-end, wrap);
+}
+.container-flex-reenw {
+  @include flex-row(flex-end, flex-end, nowrap);
+}
+//_________
+.container-flex-resw {
+  @include flex-row(flex-end, flex-start, wrap);
+}
+.container-flex-resnw {
+  @include flex-row(flex-end, flex-start, nowrap);
+}
+.container-flex-rsew {
+  @include flex-row(flex-start, flex-end, wrap);
+}
+.container-flex-rsenw {
+  @include flex-row(flex-start, flex-end, nowrap);
+}
+
+//basic three sections flex container...
 .container-col {
   @include container-col(accent1, 220px, 2);
 
@@ -170,3 +238,23 @@
     border-top: 1px solid set-color($bord, default);
   }
 }
+
+//basic slide-toggler-small...
+.slide-toggler {
+  @include slide-toggler-sm;
+}
+// .slide-toggler.critical {
+//   @include slide-toggler-sm(bk);
+// }
+// .slide-toggler.danger {
+//   @include slide-toggler-sm(danger);
+// }
+// .slide-toggler.warninig {
+//   @include slide-toggler-sm(warning);
+// }
+// .slide-toggler.valid {
+//   @include slide-toggler-sm(valid);
+// }
+// .slide-toggler.primary {
+//   @include slide-toggler-sm(primary);
+// }

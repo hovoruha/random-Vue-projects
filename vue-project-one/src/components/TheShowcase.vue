@@ -30,9 +30,9 @@ export default {
 
   methods: {
     removeThread(i) {
-      console.log(i);
+      // console.log(i);
       this.$store.commit("removeThread", i);
-      console.log(this.currentState);
+      // console.log(this.currentState);
     },
 
     completeThread(i) {

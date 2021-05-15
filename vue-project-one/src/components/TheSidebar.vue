@@ -186,20 +186,25 @@ export default {
       this.$store.state.activeThread = e;
     },
 
-    uploadThread() {
+    uploadThread(e) {
+      e.preventDefault();
+
       const title = document.getElementById("threadTitle");
       const desc = document.getElementById("threadDescription");
       const auth = document.getElementById("threadAuthor");
 
       //basic input validation...
       if (title.value == "") {
-        alert("nu ati introdus titlul thread-ului...");
+        title.classList.add("input-danger");
+        title.placeholder = "nu ati introdus titlul thread-ului...";
         return;
       } else if (desc.value == "") {
-        alert("nu ati introdus descrierea thread-ului...");
+        desc.classList.add("input-danger");
+        desc.placeholder = "nu ati introdus descrierea thread-ului...";
         return;
       } else if (auth.value == "") {
-        alert("nu ati introdus autorul thread-ului...");
+        auth.classList.add("input-danger");
+        auth.placeholder = "nu ati introdus autorul thread-ului...";
         return;
       } else {
         const insertThread = {
@@ -222,7 +227,9 @@ export default {
       }
     },
 
-    uploadTask() {
+    uploadTask(e) {
+      e.preventDefault();
+
       const threadSelect = document.getElementById("threadSelect");
       const title = document.getElementById("taskTitle");
       const text = document.getElementById("taskContent");
@@ -230,16 +237,20 @@ export default {
 
       //basic input validation...
       if (threadSelect.value == "false") {
-        alert("nu ati selectat un thread din lista...");
+        threadSelect.classList.add("select-danger");
+        // alert("nu ati selectat un thread din lista...");
         return;
       } else if (title.value == "") {
-        alert("nu ati introdus titlul task-ului...");
+        title.classList.add("input-danger");
+        title.placeholder = "nu ati introdus titlul task-ului...";
         return;
       } else if (text.value == "") {
-        alert("nu ati introdus descrierea task-ului...");
+        text.classList.add("input-danger");
+        text.placeholder = "nu ati introdus descrierea task-ului...";
         return;
       } else if (auth.value == "") {
-        alert("nu ati introdus autorul task-ului...");
+        auth.classList.add("input-danger");
+        auth.placeholder = "nu ati introdus autorul task-ului...";
         return;
       } else {
         const insertTask = {
