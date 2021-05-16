@@ -1,9 +1,11 @@
 <template>
   <div class="app-projects">
     <base-header>
-      <h3>Various projects</h3>
+      <template v-slot:headTitle><h1>Various projects</h1></template>
       <h4>WebDev, Custom VBA apps & industrial engineering related...</h4>
-      <base-avatar :parameters="avatarProps" />
+      <template v-slot:avatarSlot>
+        <base-avatar :parameters="avatarProps" />
+      </template>
     </base-header>
     <base-section></base-section>
   </div>
@@ -27,9 +29,7 @@ export default {
   data() {
     return {
       avatarProps: {
-        id: "xpTree",
         src: require("../assets/Projects.jpg"),
-        width: 150,
         alt: "xp tree photo...",
       },
     };
@@ -48,14 +48,7 @@ export default {
   justify-content: center;
 }
 
-.app-projects .header #xpTree {
-  position: absolute;
-  left: calc(100vw / 2 - 77px);
-  top: 125px;
-}
-
 .app-projects .header-title *:first-child {
   text-decoration: underline;
-  /* text-transform: uppercase; */
 }
 </style>

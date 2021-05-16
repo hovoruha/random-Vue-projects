@@ -66,16 +66,48 @@ export default {
   margin-bottom: 30px;
 }
 
+.app-navbar .app-navbar-item:hover {
+  color: var(--green1);
+}
+
 .open {
-  /* display: flex; */
   white-space: nowrap;
   transform: translateY(0);
   transition: transform 0.3s ease-in-out;
 }
+
 .close {
-  /* display: none; */
   white-space: nowrap;
   transform: translateY(-100%);
   transition: transform 0.3s ease-in-out;
+}
+
+/* media queries_________________ */
+@media only screen and (min-width: 737px) {
+  .app-navbar {
+    position: static;
+    height: 60px;
+    background-color: var(--green2);
+    flex-direction: row;
+  }
+
+  .app-navbar .app-navbar-item {
+    margin: 0 20px 0 0;
+    color: var(--green1);
+  }
+
+  .app-navbar .app-navbar-item:hover {
+    text-decoration: underline;
+  }
+
+  .close {
+    transform: translateY(0);
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .app-navbar {
+    justify-content: flex-end;
+  }
 }
 </style>

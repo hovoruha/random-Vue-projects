@@ -15,6 +15,7 @@ export default {
 </script>
 
 <style scoped>
+/*mobile first styles...*/
 .timeline-item {
   position: relative;
   padding: 10px;
@@ -33,7 +34,7 @@ export default {
 
 /* .timeline-item.right {
   border-right: 5px solid var(--green1);
-} */
+} done... */
 
 .timeline-item::after {
   content: "";
@@ -57,7 +58,7 @@ export default {
 
 /* .timeline-item.right::after {
   right: -39px;
-} */
+} done...*/
 
 .timeline-item::before {
   content: "";
@@ -78,7 +79,7 @@ export default {
 
 /* .timeline-item.right::before {
   right: -35px;
-} */
+} done...*/
 
 .timeline-item-content {
   padding: 0 10px;
@@ -90,4 +91,28 @@ export default {
 }
 
 /* media queries_________________ */
+@media only screen and (min-width: 737px) {
+  .timeline-item {
+    width: calc(50% - 30px);
+  }
+
+  .timeline-item.left {
+    border-left: none;
+    border-right: 5px solid var(--green1);
+  }
+
+  .timeline-item.left::after {
+    left: initial;
+    right: -41px;
+  }
+
+  .timeline-item.left::before {
+    left: initial;
+    right: -35px;
+  }
+
+  .timeline-item.right {
+    left: calc(50% + 30px);
+  }
+}
 </style>

@@ -1,9 +1,11 @@
 <template>
   <div class="app-homepage" id="homepage">
     <base-header>
-      <h3>Octavian Hovoruha</h3>
+      <template v-slot:headTitle><h1>Octavian Hovoruha</h1></template>
       <h4>Industrial Engineer & aspiring web-developer</h4>
-      <base-avatar :parameters="avatarProps" />
+      <template v-slot:avatarSlot>
+        <base-avatar :parameters="avatarProps" />
+      </template>
     </base-header>
     <base-section>
       <base-section-item
@@ -39,9 +41,7 @@ export default {
   data() {
     return {
       avatarProps: {
-        id: "myAvatar",
         src: require("../assets/myAvatar.jpg"),
-        width: 150,
         alt: "my avatar photo...",
       },
     };
@@ -66,14 +66,30 @@ export default {
   justify-content: center;
 }
 
-.app-homepage .header #myAvatar {
+/* .app-homepage .header #myAvatar {
   position: absolute;
   left: calc(100vw / 2 - 77px);
   top: 125px;
-}
+} */
 
 .app-homepage .header-title *:first-child {
   text-decoration: underline;
-  /* text-transform: uppercase; */
+}
+
+/* media queries_________________ */
+@media only screen and (min-width: 737px) {
+  .base-section {
+    padding-top: 150px;
+    padding-left: 90px;
+    padding-right: 90px;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .base-section {
+    padding-top: 200px;
+    padding-left: 250px;
+    padding-right: 250px;
+  }
 }
 </style>

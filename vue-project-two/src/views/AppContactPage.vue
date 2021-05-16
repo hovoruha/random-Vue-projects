@@ -1,9 +1,11 @@
 <template>
   <div class="app-contact">
     <base-header>
-      <h3>Means of getting in contact</h3>
+      <template v-slot:headTitle><h1>Means of getting in contact</h1></template>
       <!-- <h4>so far...</h4> -->
-      <base-avatar :parameters="avatarProps" />
+      <template v-slot:avatarSlot>
+        <base-avatar :parameters="avatarProps" />
+      </template>
     </base-header>
     <base-section></base-section>
   </div>
@@ -27,9 +29,7 @@ export default {
   data() {
     return {
       avatarProps: {
-        id: "xpTree",
         src: require("../assets/Contact.jpg"),
-        width: 150,
         alt: "contact photo...",
       },
     };
@@ -48,14 +48,7 @@ export default {
   justify-content: center;
 }
 
-.app-contact .header #xpTree {
-  position: absolute;
-  left: calc(100vw / 2 - 77px);
-  top: 125px;
-}
-
 .app-contact .header-title *:first-child {
   text-decoration: underline;
-  /* text-transform: uppercase; */
 }
 </style>

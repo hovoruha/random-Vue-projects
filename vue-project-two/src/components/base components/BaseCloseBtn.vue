@@ -53,4 +53,14 @@ export default {
   top: 20px;
   left: 20px;
 }
+
+/* media queries_________________ */
+@media only screen and (min-width: 737px) {
+  .close-btn {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+}
 </style>

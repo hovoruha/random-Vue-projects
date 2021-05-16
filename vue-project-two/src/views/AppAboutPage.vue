@@ -1,9 +1,11 @@
 <template>
   <div class="app-about">
     <base-header>
-      <h3>The XP tree</h3>
+      <template v-slot:headTitle><h1>The XP tree</h1></template>
       <h4>so far...</h4>
-      <base-avatar :parameters="avatarProps" />
+      <template v-slot:avatarSlot>
+        <base-avatar :parameters="avatarProps" />
+      </template>
     </base-header>
     <base-section>
       <timeline>
@@ -49,9 +51,7 @@ export default {
   data() {
     return {
       avatarProps: {
-        id: "xpTree",
         src: require("../assets/XP-tree.jpg"),
-        width: 150,
         alt: "xp tree photo...",
       },
     };
@@ -72,12 +72,6 @@ export default {
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
-}
-
-.app-about .header #xpTree {
-  position: absolute;
-  left: calc(100vw / 2 - 77px);
-  top: 125px;
 }
 
 .app-about .header-title *:first-child {

@@ -22,6 +22,7 @@ export default {
   data() {
     return {
       scrollValue: "",
+      scrollValueLeft: "",
     };
   },
 
@@ -34,23 +35,37 @@ export default {
       const elem = document.getElementsByTagName("html")[0];
       const header = document.getElementsByClassName("container")[0];
       const burger = document.getElementsByClassName("burger-btn")[0];
+
       this.scrollValue = elem.scrollTop;
 
-      // console.log(this.scrollValue);
       if (this.scrollValue > 168) {
         header.classList.add("scrolled");
         burger.classList.add("scrolled");
-        // console.log("goz");
       } else {
         header.classList.remove("scrolled");
         burger.classList.remove("scrolled");
-        // console.log("moz");
       }
     },
+
+    // resizeAvatar() {
+    //   const elem = document.getElementsByTagName("html")[0];
+    //   const avatar = document.getElementsByClassName("avatar-img")[0];
+
+    //   //1007 → echivalentul lui 1025px vw...
+    //   if (elem.scrollWidth > 1007) {
+    //     avatar.style.width = 250 + "px";
+    //     avatar.style.height = 250 + "px";
+    //   } else {
+    //     avatar.style.width = 150 + "px";
+    //     avatar.style.height = 150 + "px";
+    //   }
+    // },
   },
 
   mounted() {
     window.addEventListener("scroll", this.testScroll);
+    // window.addEventListener("resize", this.resizeAvatar);
+    // this.resizeAvatar();
   },
 
   deactivated() {
@@ -135,5 +150,14 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
   transition: all 0.3s ease-in-out;
 }
-/* _____________________ */
+
+/* media queries_________________ */
+@media only screen and (min-width: 737px) {
+  .app-wrapper .container {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+}
 </style>
