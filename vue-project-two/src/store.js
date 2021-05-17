@@ -68,6 +68,14 @@ const store = createStore({
         position: "left",
       },
     ],
+
+    contactCredentials: [
+      { icon: "far fa-envelope-open", text: "octavian.hovoruha@gmail.com" },
+      { icon: "fas fa-mobile-alt", text: "+40 721 537 057" },
+      { icon: "fab fa-slack", text: "get in touch on Slack" },
+      { icon: "fab fa-linkedin", text: "follow me on LinkedIn" },
+      // { icon: "fab fa-github", text: "follow me on GitHub" },
+    ],
   },
 
   getters: {
@@ -81,6 +89,10 @@ const store = createStore({
 
     getAboutPageContents(state) {
       return state.aboutPageContents;
+    },
+
+    getContactCredentials(state) {
+      return state.contactCredentials;
     },
   },
 

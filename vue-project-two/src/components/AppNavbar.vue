@@ -108,6 +108,7 @@ export default {
 @media only screen and (min-width: 1025px) {
   .app-navbar {
     justify-content: flex-end;
+    padding-right: 30px;
   }
 }
 </style>

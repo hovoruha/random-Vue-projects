@@ -83,6 +83,7 @@ export default {
   --lightgray: lightgray;
   --green1: #41b883;
   --green2: #34495e;
+  --acc1: #574c4f;
 }
 /* main resets... */
 * {
