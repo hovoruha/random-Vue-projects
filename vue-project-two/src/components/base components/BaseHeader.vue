@@ -54,6 +54,12 @@ export default {
   }
 }
 
+@media only screen and (min-width: 768px) {
+  .header .header-title div[headerAvatar] {
+    left: calc(50vw - 78px);
+  }
+}
+
 @media only screen and (min-width: 1025px) {
   .header {
     height: 255px;

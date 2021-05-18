@@ -32,10 +32,6 @@ export default {
   border-left: 5px solid var(--green1);
 }
 
-/* .timeline-item.right {
-  border-right: 5px solid var(--green1);
-} done... */
-
 .timeline-item::after {
   content: "";
   position: absolute;
@@ -56,10 +52,6 @@ export default {
   left: -39px;
 }
 
-/* .timeline-item.right::after {
-  right: -39px;
-} done...*/
-
 .timeline-item::before {
   content: "";
   position: absolute;
@@ -76,10 +68,6 @@ export default {
 .timeline-item.right::before {
   left: -35px;
 }
-
-/* .timeline-item.right::before {
-  right: -35px;
-} done...*/
 
 .timeline-item-content {
   padding: 0 10px;

@@ -1,7 +1,7 @@
 <template>
   <div class="base-iconedItem">
     <div icon><slot name="icon"></slot></div>
-    <slot></slot>
+    <div text><slot></slot></div>
   </div>
 </template>
 
@@ -15,6 +15,12 @@ export default {
 .base-iconedItem {
   width: 100%;
   margin: 10px 0;
+  font-size: 16px;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.base-iconedItem div[icon] {
+  font-size: 20px;
 }
 
 .right {
@@ -31,7 +37,6 @@ export default {
 }
 
 .base-iconedItem.flex-row div[icon] {
-  font-size: 20px;
   margin-right: 10px;
 }
 
@@ -41,7 +46,6 @@ export default {
 }
 
 .base-iconedItem.flex-col div[icon] {
-  font-size: 15px;
   margin-bottom: 10px;
 }
 
@@ -125,5 +129,32 @@ export default {
 
 .base-iconedItem.txt-acc1 {
   color: var(--acc1);
+}
+
+/* media queries... */
+@media only screen and (min-width: 737px) {
+  .base-iconedItem {
+    margin: 25px 0;
+    font-size: 20px;
+  }
+
+  .base-iconedItem div[icon] {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .base-iconedItem {
+    margin: 25px 0;
+    font-size: 20px;
+  }
+
+  .base-iconedItem div[icon] {
+    font-size: 30px;
+  }
+
+  .base-iconedItem.flex-row div[icon] {
+    margin-right: 20px;
+  }
 }
 </style>

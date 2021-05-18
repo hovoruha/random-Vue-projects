@@ -26,8 +26,8 @@ export default {
   data() {
     return {
       links: [
-        { destination: "/", text: "Home", run: this.hideNavbar },
-        { destination: "/about", text: "About", run: this.hideNavbar },
+        { destination: "/", text: "Bio", run: this.hideNavbar },
+        { destination: "/about", text: "XP", run: this.hideNavbar },
         { destination: "/projects", text: "My work", run: this.hideNavbar },
         { destination: "/contact", text: "Contact", run: this.hideNavbar },
       ],

@@ -67,6 +67,20 @@ const store = createStore({
           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur natus animi reiciendis eligendi magni ipsa. Facilis, itaque delectus repellendus voluptatibus deserunt nemo amet sit?",
         position: "left",
       },
+      {
+        title: "Lorem ipsum",
+        subtitle: "Lorem ipsum dolor sit amet, consectetur",
+        content:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur natus animi reiciendis eligendi magni ipsa. Facilis, itaque delectus repellendus voluptatibus deserunt nemo amet sit?",
+        position: "right",
+      },
+      {
+        title: "Lorem ipsum",
+        subtitle: "Lorem ipsum dolor sit amet, consectetur",
+        content:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur natus animi reiciendis eligendi magni ipsa. Facilis, itaque delectus repellendus voluptatibus deserunt nemo amet sit?",
+        position: "left",
+      },
     ],
 
     contactCredentials: [

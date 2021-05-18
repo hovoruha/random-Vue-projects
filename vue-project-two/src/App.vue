@@ -46,26 +46,10 @@ export default {
         burger.classList.remove("scrolled");
       }
     },
-
-    // resizeAvatar() {
-    //   const elem = document.getElementsByTagName("html")[0];
-    //   const avatar = document.getElementsByClassName("avatar-img")[0];
-
-    //   //1007 → echivalentul lui 1025px vw...
-    //   if (elem.scrollWidth > 1007) {
-    //     avatar.style.width = 250 + "px";
-    //     avatar.style.height = 250 + "px";
-    //   } else {
-    //     avatar.style.width = 150 + "px";
-    //     avatar.style.height = 150 + "px";
-    //   }
-    // },
   },
 
   mounted() {
     window.addEventListener("scroll", this.testScroll);
-    // window.addEventListener("resize", this.resizeAvatar);
-    // this.resizeAvatar();
   },
 
   deactivated() {

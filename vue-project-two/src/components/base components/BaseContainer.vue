@@ -80,4 +80,44 @@ export default {
   align-items: flex-end;
   justify-content: flex-end;
 }
+.flex-csb {
+  align-items: center;
+  justify-content: space-between;
+}
+.flex-csa {
+  align-items: center;
+  justify-content: space-around;
+}
+
+.bg-bk {
+  background-color: var(--bk);
+}
+.bg-wh {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.bg-gry {
+  background-color: var(--gray);
+}
+.bg-lgry {
+  background-color: var(--lightgray);
+}
+.bg-grn1 {
+  background-color: var(--green1);
+}
+.bg-grn2 {
+  background-color: var(--green2);
+}
+.bg-acc1 {
+  background-color: var(--acc1);
+}
+
+/* media queries... */
+@media only screen and (min-width: 737px) {
+}
+
+@media only screen and (min-width: 1025px) {
+  .base-container {
+    padding: 40px 60px 10px;
+  }
+}
 </style>

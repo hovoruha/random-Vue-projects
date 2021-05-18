@@ -13,7 +13,7 @@ export default {
 <style scoped>
 .base-item {
   width: 100%;
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
 .right {
@@ -78,6 +78,18 @@ export default {
 .flex-ee {
   align-items: flex-end;
   justify-content: flex-end;
+}
+.flex-csb {
+  align-items: center;
+  justify-content: space-between;
+}
+.flex-csa {
+  align-items: center;
+  justify-content: space-around;
+}
+
+.txt-sdw {
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
 }
 
 .base-item.txt-bk {

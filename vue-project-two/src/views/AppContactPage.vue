@@ -28,6 +28,8 @@
           >
         </base-iconed-item>
       </base-container>
+      <!-- aici vine ContactForms.vue... -->
+      <contact-page-form />
     </base-section>
   </div>
 </template>
@@ -35,10 +37,11 @@
 <script>
 import { mapGetters } from "vuex";
 import BaseHeader from "../components/base components/BaseHeader.vue";
-import BaseAvatar from "../components/base components/BaseAvatar";
+import BaseAvatar from "../components/base components/BaseAvatar.vue";
 import BaseSection from "../components/base components/BaseSection.vue";
 import BaseContainer from "../components/base components/BaseContainer.vue";
 import BaseIconedItem from "../components/base components/BaseIconedItem.vue";
+import ContactPageForm from "./AppContactPage components/ContactPageForm.vue";
 
 export default {
   name: "AppContactPage",
@@ -49,6 +52,7 @@ export default {
     BaseSection,
     BaseContainer,
     BaseIconedItem,
+    ContactPageForm,
   },
 
   data() {
